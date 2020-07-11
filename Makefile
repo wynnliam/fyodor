@@ -4,7 +4,7 @@ EXEC_NAME= fyodo.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
-ALL_PREREQ= main.o
+ALL_PREREQ= main.o vector2d.o
 
 all: clean compile_all link_all
 
@@ -15,7 +15,13 @@ MAIN_O= ./bin/obj/main.o
 main.o: $(MAIN_S)
 	$(COMPILER) -c $(MAIN_S) -o $(MAIN_O)
 
+VECTOR2D_S= ./src/vector2d.cpp
+VECTOR2D_O =./bin/obj/vector2d.o
+vector2d.o: #(VECTOR2D_S)
+	$(COMPILER) -c $(VECTOR2D_S) -o $(VECTOR2D_O)
 
+
+# Specific build recipies
 .phony: clean
 clean:
 	-rm ./bin/*.out $(OBJ)
