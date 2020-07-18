@@ -19,10 +19,10 @@ vector2d ray::at(const float t) const {
 
 // TODO: Case of dir.x or dir.y being 0!!!!
 bool ray::collides_with(const aabb& box) const {
-	float txmin = (box.top_left.x - origin.x) / direction.x;
-	float tymin = (box.bottom_right.y - origin.y) / direction.y;
-	float txmax = (box.bottom_right.x - origin.x) / direction.x;
-	float tymax = (box.top_left.y - origin.y) / direction.y;
+	float txmin = (box.top_left.x - origin.x) * direction_inverse.x;
+	float tymin = (box.bottom_right.y - origin.y) * direction_inverse.y;
+	float txmax = (box.bottom_right.x - origin.x) * direction_inverse.x;
+	float tymax = (box.top_left.y - origin.y) * direction_inverse.y;
 
 	float txenter = std::min(txmin, txmax);
 	float txexit = std::max(txmin, txmax);
