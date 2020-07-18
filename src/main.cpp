@@ -13,10 +13,14 @@ void print_vector(const vector2d& vect) {
 
 int main() {
 	cout << "Welcome to Fyodor!" << endl;
-	vector2d a(1, 2);
-	vector2d b(3, 4);
-	vector2d c = a + b;
+	vector2d vect(3, 4);
+	vector2d vect2(1, 2);
+	float scalar = 2.5;
 
-	print_vector(c);
+	vect *= scalar;
+	print_vector(vect);
+	print_vector(vect2 * scalar);
+	print_vector(scalar * vect2);
+
 	return 0;
 }
