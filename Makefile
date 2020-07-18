@@ -1,4 +1,5 @@
 COMPILER= g++
+FLAGS=-g --std=c++20
 
 EXEC_NAME= fyodo.out
 OBJ= ./bin/obj/*.o
@@ -13,17 +14,17 @@ all: clean compile_all link_all
 MAIN_S= ./src/main.cpp
 MAIN_O= ./bin/obj/main.o
 main.o: $(MAIN_S)
-	$(COMPILER) -c $(MAIN_S) -o $(MAIN_O)
+	$(COMPILER) $(FLAGS) -c $(MAIN_S) -o $(MAIN_O)
 
 VECTOR2D_S= ./src/vector2d.cpp
 VECTOR2D_O =./bin/obj/vector2d.o
 vector2d.o: $(VECTOR2D_S)
-	$(COMPILER) -c $(VECTOR2D_S) -o $(VECTOR2D_O)
+	$(COMPILER) $(FLAGS) -c $(VECTOR2D_S) -o $(VECTOR2D_O)
 
 RAY_S= ./src/ray.cpp
 RAY_O= ./bin/obj/ray.o
 ray.o: $(RAY_S)
-	$(COMPILER) -c $(RAY_S) -o $(RAY_O)
+	$(COMPILER) $(FLAGS) -c $(RAY_S) -o $(RAY_O)
 
 # Specific build recipies
 .phony: clean
