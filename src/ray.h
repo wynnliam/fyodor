@@ -15,9 +15,12 @@ namespace fyodor {
 
 			bool collides_with(const aabb& box) const;
 
-		private:
+		//private:
 			vector2d origin;
 			vector2d direction;
+			// A precalculated value so we can do collides_with without
+			// any division.
+			vector2d direction_inverse;
 	};
 }
 #endif

@@ -7,6 +7,9 @@ using namespace fyodor;
 
 ray::ray(vector2d new_or, vector2d new_dir) : origin(new_or), direction(new_dir) {
 	direction.normalize();
+
+	direction_inverse.x = direction.x != 0.0f ? 1 / direction.x : 0.0f;
+	direction_inverse.y = direction.y != 0.0f ? 1 / direction.y : 0.0f;
 }
 
 vector2d ray::at(const float t) const {
