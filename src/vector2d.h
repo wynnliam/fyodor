@@ -13,6 +13,8 @@ namespace fyodor {
 
 			vector2d& operator+= (const vector2d& to_add);
 			vector2d& operator*= (const float& scalar);
+
+			float magnitude() const;
 	};
 }
 

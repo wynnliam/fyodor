@@ -14,13 +14,8 @@ void print_vector(const vector2d& vect) {
 int main() {
 	cout << "Welcome to Fyodor!" << endl;
 	vector2d vect(3, 4);
-	vector2d vect2(1, 2);
-	float scalar = 2.5;
 
-	vect *= scalar;
 	print_vector(vect);
-	print_vector(vect2 * scalar);
-	print_vector(scalar * vect2);
-
+	cout << "magnitude: " << vect.magnitude() << endl;
 	return 0;
 }
