@@ -10,7 +10,8 @@ namespace fyodor {
 
 			vector2d() : x(0), y(0) { }
 			vector2d(const float x_val, const float y_val) : x(x_val), y(y_val) { }
-			
+
+			vector2d& operator+= (const vector2d& to_add);
 	};
 }
 
