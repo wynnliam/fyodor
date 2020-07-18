@@ -43,6 +43,9 @@ void vector2d::normalize() {
 	if(mag > 0.0f) {
 		x /= mag;
 		y /= mag;
+	} else {
+		x = 0.0f;
+		y = 0.0f;
 	}
 }
 
