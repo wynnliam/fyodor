@@ -9,9 +9,9 @@ namespace fyodor {
 	class ray {
 		public:
 			ray() { }
-			ray(vector2d new_or, vector2d new_dir) : origin(new_or), direction(new_dir) { }
+			ray(vector2d new_or, vector2d new_dir);
 
-			vector2d at(const float t) const;
+			//vector2d at(const float t) const;
 
 		private:
 			vector2d origin;
