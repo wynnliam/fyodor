@@ -3,7 +3,7 @@
 #ifndef RAY
 #define RAY
 
-#include "./vector2d.h"
+#include "./aabb.h"
 
 namespace fyodor {
 	class ray {
@@ -12,6 +12,8 @@ namespace fyodor {
 			ray(vector2d new_or, vector2d new_dir);
 
 			vector2d at(const float t) const;
+
+			bool collides_with(const aabb& box) const;
 
 		private:
 			vector2d origin;

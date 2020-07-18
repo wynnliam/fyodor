@@ -23,11 +23,17 @@ int main() {
 	cout << "Welcome to Fyodor!" << endl;
 	ray ray_1(vector2d(2, 1), vector2d(1, 1));
 	ray ray_2(vector2d(1, 5), vector2d(1, 1));
+	aabb box(vector2d(3,3), vector2d(7, 5));
 
-	for(int i = 0; i < 10; i++)
-		print_vector(ray_1.at(i));
+	if(ray_1.collides_with(box))
+		cout << "Ray 1 hit!" << endl;
+	else
+		cout << "Ray 1 miss!" << endl;
 
-	//print_ray(ray_2);
+	if(ray_2.collides_with(box))
+		cout << "Ray 2 hit!" << endl;
+	else
+		cout << "Ray 2 miss!" << endl;
 
 	return 0;
 }
