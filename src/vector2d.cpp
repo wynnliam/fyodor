@@ -16,3 +16,18 @@ vector2d& vector2d::operator+= (const vector2d& to_add) {
 vector2d operator+ (const vector2d& a, const vector2d& b) {
 	return vector2d(a.x + b.x, a.y + b.y);
 }
+
+vector2d& vector2d::operator*= (const float& scalar) {
+	x *= scalar;
+	y *= scalar;
+
+	return *this;
+}
+
+vector2d operator* (const float& scalar, const vector2d& vect) {
+	return vector2d(vect.x * scalar, vect.y * scalar);
+}
+
+vector2d operator* (const vector2d& vect, const float& scalar) {
+	return vector2d(vect.x * scalar, vect.y * scalar);
+}
