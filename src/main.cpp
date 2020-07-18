@@ -15,9 +15,8 @@ int main() {
 	cout << "Welcome to Fyodor!" << endl;
 	vector2d a(1, 2);
 	vector2d b(3, 4);
+	vector2d c = a + b;
 
-	a += vector2d(3, 4);
-
-	print_vector(a);
+	print_vector(c);
 	return 0;
 }

@@ -2,6 +2,8 @@
 
 #include "./vector2d.h"
 
+#include <utility>
+
 using namespace fyodor;
 
 vector2d& vector2d::operator+= (const vector2d& to_add) {
@@ -11,8 +13,6 @@ vector2d& vector2d::operator+= (const vector2d& to_add) {
 	return *this;
 }
 
-vector2d&& operator+ (const vector2d& a, const vector2d& b) {
-	vector2d result(a.x + b.x, a.y + b.y);
-
-	return std::move(result);
+vector2d operator+ (const vector2d& a, const vector2d& b) {
+	return vector2d(a.x + b.x, a.y + b.y);
 }
