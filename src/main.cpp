@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "./vector2d.h"
+#include "./ray.h"
 
 using namespace std;
 using namespace fyodor;
@@ -11,16 +11,21 @@ void print_vector(const vector2d& vect) {
 	cout << "(" << vect.x << ", " << vect.y << ")" << endl;
 }
 
+void print_ray(const ray& ray) {
+	cout << "Origin: ";
+	print_vector(ray.origin);
+	cout << "Direction: ";
+	print_vector(ray.direction);
+	cout << endl;
+}
+
 int main() {
 	cout << "Welcome to Fyodor!" << endl;
-	vector2d vect(3, 4);
-	vector2d copy_vect;
+	ray ray_1(vector2d(2, 1), vector2d(1, 1));
+	ray ray_2(vector2d(1, 5), vector2d(1, 1));
 
-	copy_vect = vect.get_normalized();
-
-	print_vector(vect);
-	cout << "magnitude: " << vect.magnitude() << endl;
-	print_vector(copy_vect);
+	print_ray(ray_1);
+	print_ray(ray_2);
 
 	return 0;
 }
