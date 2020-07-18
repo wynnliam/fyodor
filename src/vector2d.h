@@ -15,6 +15,9 @@ namespace fyodor {
 			vector2d& operator*= (const float& scalar);
 
 			float magnitude() const;
+
+			void normalize();
+			vector2d get_normalized() const;
 	};
 }
 

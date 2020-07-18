@@ -36,3 +36,19 @@ vector2d operator* (const vector2d& vect, const float& scalar) {
 float vector2d:: magnitude() const {
 	return (float)sqrt((x * x) + (y * y));
 }
+
+void vector2d::normalize() {
+	float mag = magnitude();
+
+	if(mag > 0.0f) {
+		x /= mag;
+		y /= mag;
+	}
+}
+
+vector2d vector2d::get_normalized() const {
+	vector2d t(x, y);
+	t.normalize();
+
+	return t;
+}
