@@ -33,14 +33,12 @@ void ray_box_test(const ray& ray, const aabb& box, const string& name) {
 
 int main() {
 	cout << "Welcome to Fyodor!" << endl;
-	ray ray_1(vector2d(2, 1), vector2d(1, 1));
-	ray ray_2(vector2d(1, 5), vector2d(1, 1));
-	ray ray_3(vector2d(5, 6), vector2d(0, -1));
+	ray ray_1(vector2d(7, 3), vector2d(-1, 0));
 	aabb box(vector2d(3,3), vector2d(7, 5));
 
 	ray_box_test(ray_1, box, "Ray 1");
-	ray_box_test(ray_2, box, "Ray 2");
-	ray_box_test(ray_3, box, "Ray 3");
+
+	//cout << 0 * numeric_limits<float>::infinity() << endl;
 
 	return 0;
 }
