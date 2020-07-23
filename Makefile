@@ -5,7 +5,7 @@ EXEC_NAME= fyodo.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
-ALL_PREREQ= main.o vector2d.o ray.o
+ALL_PREREQ= main.o vector2d.o aabb.o ray.o
 
 all: clean compile_all link_all
 
@@ -25,6 +25,11 @@ RAY_S= ./src/ray.cpp
 RAY_O= ./bin/obj/ray.o
 ray.o: $(RAY_S)
 	$(COMPILER) $(FLAGS) -c $(RAY_S) -o $(RAY_O)
+
+AABB_S= ./src/aabb.cpp
+AABB_O= ./bin/obj/aabb.o
+aabb.o: $(AABB_S)
+	$(COMPILER) $(FLAGS) -c $(AABB_S) -o $(AABB_O)
 
 # Specific build recipies
 .phony: clean
