@@ -2,14 +2,22 @@
 
 #include "ray.h"
 #include <algorithm>
+#include <limits>
 
 using namespace fyodor;
 
 ray::ray(vector2d new_or, vector2d new_dir) : origin(new_or), direction(new_dir) {
 	direction.normalize();
 
-	direction_inverse.x = direction.x != 0.0f ? 1 / direction.x : 0.0f;
-	direction_inverse.y = direction.y != 0.0f ? 1 / direction.y : 0.0f;
+	if(direction.x != 0)
+		direction_inverse.x = 1 / direction.x;
+	else
+		direction_inverse.x = std::numeric_limits<float>::infinity();
+
+	if(direction.y != 0)
+		direction_inverse.y = 1 / direction.y;
+	else
+		direction_inverse.y = std::numeric_limits<float>::infinity();
 }
 
 vector2d ray::at(const float t) const {
