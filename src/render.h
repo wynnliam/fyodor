@@ -89,7 +89,7 @@ namespace fyodor {
 			- N/A
 
 		Notes:
-			- Do not explicitly call this please. glutCloseFunc is bound to this.
+			- Please call on exit of rendering.
 	*/
 	void opengl_cleanup();
 }

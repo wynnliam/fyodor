@@ -49,5 +49,7 @@ int main(int argc, char** argv) {
 	while(1)
 		do_render();
 
+	opengl_cleanup();
+
 	return 0;
 }
