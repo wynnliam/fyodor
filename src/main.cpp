@@ -42,6 +42,7 @@ int main(int argc, char** argv) {
 	//cout << 0 * numeric_limits<float>::infinity() << endl;*/
 
 	start_opengl(argc, argv);
+	initialize_opengl();
 
 	return 0;
 }
