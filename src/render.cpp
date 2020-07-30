@@ -59,3 +59,7 @@ void fyodor::do_render() {
 	// Swap window buffers at end of rendering.
 	glutSwapBuffers();
 }
+
+void fyodor::opengl_cleanup() {
+	cout << "Cleaning up OpenGL" << endl;
+}
