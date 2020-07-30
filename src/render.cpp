@@ -18,6 +18,9 @@ void fyodor::start_opengl(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
 	glutInitWindowSize(SCREEN_W, SCREEN_H);
 	glutCreateWindow("Fyodor");
+
+	// Bind callbacks here
+	glutCloseFunc(fyodor::opengl_cleanup);
 }
 
 bool fyodor::initialize_opengl() {

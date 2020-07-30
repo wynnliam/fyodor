@@ -24,7 +24,7 @@ namespace fyodor {
 		Postconditions:
 			- Creates a valid OpenGL context.
 		Side Effects:
-			- None
+			- Binds opengl_cleanup to glutExitFunc.
 		Returns:
 			- N/A
 		Notes:
