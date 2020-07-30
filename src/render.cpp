@@ -51,3 +51,11 @@ bool fyodor::initialize_opengl() {
 
 	return true;
 }
+
+void fyodor::do_render() {
+	// Clears color
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	// Swap window buffers at end of rendering.
+	glutSwapBuffers();
+}

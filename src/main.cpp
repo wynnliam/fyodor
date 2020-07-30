@@ -42,7 +42,12 @@ int main(int argc, char** argv) {
 	//cout << 0 * numeric_limits<float>::infinity() << endl;*/
 
 	start_opengl(argc, argv);
-	initialize_opengl();
+	if(!initialize_opengl())
+		return 1;
+
+	// TODO: Better game loop!
+	while(1)
+		do_render();
 
 	return 0;
 }
