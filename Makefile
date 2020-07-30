@@ -1,7 +1,8 @@
 COMPILER= g++
 FLAGS=-g --std=c++20
+LINKER_FLAGS= -lm -lGL -lGLU -lglut -lIL
 
-EXEC_NAME= fyodo.out
+EXEC_NAME= fyodor.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
@@ -44,5 +45,5 @@ clean:
 compile_all: $(ALL_PREREQ)
 
 link_all:
-	$(COMPILER) $(OBJ) -o ./bin/$(EXEC_NAME)
+	$(COMPILER) $(OBJ) $(LINKER_FLAGS) -o ./bin/$(EXEC_NAME)
 
