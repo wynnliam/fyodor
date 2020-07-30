@@ -74,6 +74,15 @@ namespace fyodor {
 			in the future.
 	*/
 	void do_render();
+
+	/*
+		Preconditions:
+		Postconditions:
+		Side effects:
+		Returns:
+		Notes:
+	*/
+	void opengl_cleanup();
 }
 
 #endif
