@@ -77,10 +77,19 @@ namespace fyodor {
 
 	/*
 		Preconditions:
+			- OpenGL started and initialized.
+
 		Postconditions:
+			- Deallocates anything related to rendering.
+
 		Side effects:
+			- N/A
+
 		Returns:
+			- N/A
+
 		Notes:
+			- Do not explicitly call this please. glutCloseFunc is bound to this.
 	*/
 	void opengl_cleanup();
 }
