@@ -5,7 +5,7 @@ EXEC_NAME= fyodo.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
-ALL_PREREQ= main.o vector2d.o aabb.o ray.o
+ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o
 
 all: clean compile_all link_all
 
@@ -30,6 +30,11 @@ AABB_S= ./src/aabb.cpp
 AABB_O= ./bin/obj/aabb.o
 aabb.o: $(AABB_S)
 	$(COMPILER) $(FLAGS) -c $(AABB_S) -o $(AABB_O)
+
+RENDER_S= ./src/render.cpp
+RENDER_O= ./bin/obj/render.o
+render.o: $(RENDER_S)
+	$(COMPILER) $(FLAGS) -c $(RENDER_S) -o $(RENDER_O)
 
 # Specific build recipies
 .phony: clean
