@@ -4,7 +4,7 @@
 
 using namespace fyodor;
 
-void start_opengl(int argc, char** argv) {
+void fyodor::start_opengl(int argc, char** argv) {
 	// First, we initialize glut.
 	glutInit(&argc, argv);
 	// Create an OpenGL 3.0 context
