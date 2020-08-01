@@ -19,8 +19,10 @@ shader_program::shader_program(const string& vert, const string& frag) {
 	frag_src = shader_source_from_file(frag);
 
 	// Now load and compile the source code.
-	compile_shader_subprogram(vert_src, GL_VERTEX_SHADER);
-	compile_shader_subprogram(frag_src, GL_FRAGMENT_SHADER);
+	// Assume true for now. If either fail we set to false.
+	compiled_successfully = true;
+	compile_shader_subprogram(vert_src, GL_VERTEX_SHADER, vert_id);
+	compile_shader_subprogram(frag_src, GL_FRAGMENT_SHADER, frag_id);
 }
 
 string shader_program::shader_source_from_file(const string& path) {
@@ -40,5 +42,24 @@ string shader_program::shader_source_from_file(const string& path) {
 	return result;
 }
 
-void shader_program::compile_shader_subprogram(const string& src, GLenum shader_type) {
+void shader_program::compile_shader_subprogram(const string& src, GLenum shader_type, GLuint& shader_id) {
+	// Generates the shader id
+	shader_id = glCreateShader(shader_type);
+
+	// Loads the shader program into OpenGL
+	const char* src_raw = src.c_str();
+	const char** raw_as_array = (const char**)&src_raw;
+	glShaderSource(shader_id, 1, raw_as_array, NULL);
+	// Now compile it.
+	glCompileShader(shader_id);
+
+	// Now check for errors.
+	GLint compile_status;
+	glGetShaderiv(shader_id, GL_COMPILE_STATUS, &compile_status);
+
+	if(compile_status != GL_TRUE) {
+		// TODO: What error?
+		cout << "There was an error compiling shader" << endl;
+		compiled_successfully = false;
+	}
 }

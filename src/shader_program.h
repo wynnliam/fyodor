@@ -49,7 +49,7 @@ namespace fyodor {
 					- If shader fails to compile, then compile_successfully will be set
 					to false.
 			*/
-			void compile_shader_subprogram(const std::string& src, GLenum shader_type);
+			void compile_shader_subprogram(const std::string& src, GLenum shader_type, GLuint& shader_id);
 
 			// We use these ids when we want to tell OpenGL to use this program
 			// for rendering.
