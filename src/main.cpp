@@ -5,6 +5,7 @@
 
 //#include "./ray.h"
 #include "./render.h"
+#include "./shader_program.h"
 
 using namespace std;
 using namespace fyodor;
@@ -40,6 +41,8 @@ int main(int argc, char** argv) {
 	ray_box_test(ray_1, box, "Ray 1");
 
 	//cout << 0 * numeric_limits<float>::infinity() << endl;*/
+
+	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
 
 	start_opengl(argc, argv);
 	if(!initialize_opengl())

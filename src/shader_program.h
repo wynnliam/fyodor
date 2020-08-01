@@ -20,6 +20,21 @@ namespace fyodor {
 			shader_program(const std::string& vert, const std::string& frag);
 
 		private:
+			/*
+				Preconditions:
+					- path must be a correct source code file paths.
+				Postconditions:
+					- Source code is read into a string which may be used
+					in OpenGL.
+				Side effects:
+					- If file cannot be opened, it will print error
+				Returns:
+					- Contents of file given by path. Otherwise the empty string.
+				Notes:
+					- N/A
+			*/
+			std::string shader_source_from_file(const std::string& path);
+
 			GLuint id;
 	};
 }
