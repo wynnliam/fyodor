@@ -53,6 +53,21 @@ namespace fyodor {
 
 			/*
 				Preconditions:
+					- Both vertex and fragment shader programs compiled without error.
+				Postconditions:
+					- Vertex and frament shaders are linked to overall shader program
+				Side-effects:
+					- In the event of failure, error log will be printed.
+					- May set linked_successfully to false.
+				Returns:
+					- None
+				Notes:
+					- If link fails, please see log printed.
+			*/
+			void link_shader_program();
+
+			/*
+				Preconditions:
 					- Had to try and compile program.
 				Postconditions:
 					- Will print any shader subprogram errors that may be found.
@@ -75,6 +90,8 @@ namespace fyodor {
 			// If either vertex or fragment shaders fail to be compiled, we have this set
 			// to false. Otherwise it is set to true.
 			bool compiled_successfully;
+			// If program fails to link, we set this to false. By default it is true though.
+			bool linked_successfully;
 	};
 }
 

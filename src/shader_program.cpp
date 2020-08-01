@@ -24,19 +24,9 @@ shader_program::shader_program(const string& vert, const string& frag) {
 	compile_shader_subprogram(vert_src, GL_VERTEX_SHADER, vert_id);
 	compile_shader_subprogram(frag_src, GL_FRAGMENT_SHADER, frag_id);
 
-	// TODO: Move to all to procedure!
 	// Now that we compiled, we will attach the shader subprograms to
 	// our overall program and then link it
-	glAttachShader(id, vert_id);
-	glAttachShader(id, frag_id);
-	glLinkProgram(id);
-
-	// Now check for errors.
-	GLint link_status;
-	glGetProgramiv(id, GL_LINK_STATUS, &link_status);
-	if(link_status != GL_TRUE) {
-		cout << "There was a problem linking shader program: " << id << endl;
-	}
+	link_shader_program();
 }
 
 string shader_program::shader_source_from_file(const string& path) {
@@ -78,6 +68,19 @@ void shader_program::compile_shader_subprogram(const string& src, GLenum shader_
 	}
 }
 
+void shader_program::link_shader_program() {
+	glAttachShader(id, vert_id);
+	glAttachShader(id, frag_id);
+	glLinkProgram(id);
+
+	// Now check for errors.
+	GLint link_status;
+	glGetProgramiv(id, GL_LINK_STATUS, &link_status);
+	if(link_status != GL_TRUE) {
+		cout << "There was a problem linking shader program: " << id << endl;
+	}
+}
+
 void shader_program::shader_subprogram_compile_log(const GLuint& shader_id) {
 	int log_len, max_log_len;
 	char* log;
@@ -95,6 +98,5 @@ void shader_program::shader_subprogram_compile_log(const GLuint& shader_id) {
 
 	delete[] log;
 	log = NULL;
-
-	
 }
+
