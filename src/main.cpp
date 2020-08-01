@@ -5,6 +5,7 @@
 
 //#include "./ray.h"
 #include "./render.h"
+#include "./shader_program.h"
 
 using namespace std;
 using namespace fyodor;
@@ -44,6 +45,9 @@ int main(int argc, char** argv) {
 	start_opengl(argc, argv);
 	if(!initialize_opengl())
 		return 1;
+
+	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
+	program.bind();
 
 	// TODO: Better game loop!
 	while(1)
