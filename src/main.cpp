@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 
 	//cout << 0 * numeric_limits<float>::infinity() << endl;*/
 
-	shader_program program("./assets/bert.glvs", "./assets/frag.glfs");
+	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
 
 	start_opengl(argc, argv);
 	if(!initialize_opengl())

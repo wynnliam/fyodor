@@ -17,6 +17,10 @@ shader_program::shader_program(const string& vert, const string& frag) {
 	string vert_src, frag_src;
 	vert_src = shader_source_from_file(vert);
 	frag_src = shader_source_from_file(frag);
+
+	// Now load and compile the source code.
+	compile_shader_subprogram(vert_src, GL_VERTEX_SHADER);
+	compile_shader_subprogram(frag_src, GL_FRAGMENT_SHADER);
 }
 
 string shader_program::shader_source_from_file(const string& path) {
@@ -36,3 +40,5 @@ string shader_program::shader_source_from_file(const string& path) {
 	return result;
 }
 
+void shader_program::compile_shader_subprogram(const string& src, GLenum shader_type) {
+}

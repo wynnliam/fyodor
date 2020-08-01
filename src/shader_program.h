@@ -35,7 +35,31 @@ namespace fyodor {
 			*/
 			std::string shader_source_from_file(const std::string& path);
 
+			/*
+				Preconditions:
+					- Shader source code read from file (please use shader_source_from_file).
+				Postconditions:
+					- OpenGL will compile and store shader for future use.
+				Side-effects:
+					- Depending on shader_type, vert_id or frag_id will be set.
+					- If source code is bad, there will be an error printed.
+				Returns:
+					- N/A
+				Notes:
+					- If shader fails to compile, then compile_successfully will be set
+					to false.
+			*/
+			void compile_shader_subprogram(const std::string& src, GLenum shader_type);
+
+			// We use these ids when we want to tell OpenGL to use this program
+			// for rendering.
 			GLuint id;
+			// Id's for the individual vertex and fragment shader
+			// subprograms.
+			GLuint vert_id, frag_id;
+			// If either vertex or fragment shaders fail to be compiled, we have this set
+			// to false. Otherwise it is set to true.
+			bool compiled_successfully;
 	};
 }
 
