@@ -6,7 +6,7 @@ EXEC_NAME= fyodor.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
-ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o
+ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o tilemap.o
 
 all: clean compile_all link_all
 
@@ -36,6 +36,11 @@ RENDER_S= ./src/render.cpp
 RENDER_O= ./bin/obj/render.o
 render.o: $(RENDER_S)
 	$(COMPILER) $(FLAGS) -c $(RENDER_S) -o $(RENDER_O)
+
+TILEMAP_S=./src/tilemap.cpp
+TILEMAP_O= ./bin/obj/tilemap.o
+tilemap.o: $(TILEMAP_S)
+	$(COMPILER) $(FLAGS) -c $(TILEMAP_S) -o $(TILEMAP_O)
 
 # Specific build recipies
 .phony: clean
