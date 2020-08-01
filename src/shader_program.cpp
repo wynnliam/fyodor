@@ -119,3 +119,7 @@ void shader_program::shader_program_link_log() {
 	delete[] log;
 	log = NULL;
 }
+
+void shader_program::bind() {
+	glUseProgram(id);
+}

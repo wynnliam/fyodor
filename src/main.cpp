@@ -47,6 +47,7 @@ int main(int argc, char** argv) {
 		return 1;
 
 	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
+	program.bind();
 
 	// TODO: Better game loop!
 	while(1)

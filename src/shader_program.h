@@ -19,6 +19,22 @@ namespace fyodor {
 		public:
 			shader_program(const std::string& vert, const std::string& frag);
 
+			/*
+				Preconditions:
+					- Program properly loaded, compiled, and linked. This is
+					done on construction of program.
+				Postconditions:
+					- OpenGL now uses this program for rendering.
+				Side-effects:
+					- None
+				Returns:
+					- None
+				Notes:
+					- I'm not sure what happens if the program fails in loading,
+					compiling, or linking steps.
+			*/
+			void bind();
+
 		private:
 			/*
 				Preconditions:

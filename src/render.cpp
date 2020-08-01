@@ -15,7 +15,7 @@ void fyodor::start_opengl(int argc, char** argv) {
 
 	// Create a double-buffered window
 	// GLUT_DEPTH fixes draw order for faces.
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE);//| GLUT_MULTISAMPLE | GLUT_DEPTH);
 	glutInitWindowSize(SCREEN_W, SCREEN_H);
 	glutCreateWindow("Fyodor");
 }
@@ -55,6 +55,20 @@ bool fyodor::initialize_opengl() {
 void fyodor::do_render() {
 	// Clears color
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	// Will attempt to draw a rectangle
+
+	// Reset all transformations.
+	glLoadIdentity();
+	//glTranslatef(SCREEN_W / 2, SCREEN_H / 2, 0);
+
+	glBegin(GL_QUADS);
+		glColor3f(0, 1, 1);
+		glVertex2f(-5, -5);
+		glVertex2f(5, -5);
+		glVertex2f(5, 5);
+		glVertex2f(-5, 5);
+	glEnd();
 
 	// Swap window buffers at end of rendering.
 	glutSwapBuffers();
