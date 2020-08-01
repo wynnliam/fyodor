@@ -1,0 +1,6 @@
+// Liam Wynn, 7/31/2020, Fyodor
+
+void main() {
+	// Does not transform the vertex whatsoever.
+	gl_Position = gl_Vertex;
+}

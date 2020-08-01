@@ -1,0 +1,7 @@
+// Liam Wynn, 7/31/2020, Fyodor
+
+void main() {
+	// Every screen pixel is set to red.
+	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+}
+
