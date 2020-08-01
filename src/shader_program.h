@@ -51,6 +51,21 @@ namespace fyodor {
 			*/
 			void compile_shader_subprogram(const std::string& src, GLenum shader_type, GLuint& shader_id);
 
+			/*
+				Preconditions:
+					- Had to try and compile program.
+				Postconditions:
+					- Will print any shader subprogram errors that may be found.
+				Side effects:
+					- None
+				Returns:
+					- N/A
+				Notes:
+					- Will only print compile failures.
+				
+			*/
+			void shader_subprogram_compile_log(const GLuint& shader_id);
+
 			// We use these ids when we want to tell OpenGL to use this program
 			// for rendering.
 			GLuint id;

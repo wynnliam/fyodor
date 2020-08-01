@@ -58,8 +58,29 @@ void shader_program::compile_shader_subprogram(const string& src, GLenum shader_
 	glGetShaderiv(shader_id, GL_COMPILE_STATUS, &compile_status);
 
 	if(compile_status != GL_TRUE) {
-		// TODO: What error?
-		cout << "There was an error compiling shader" << endl;
+		cout << "There was an error compiling shader: " << shader_id << endl;
+		shader_subprogram_compile_log(shader_id);
 		compiled_successfully = false;
 	}
+}
+
+void shader_program::shader_subprogram_compile_log(const GLuint& shader_id) {
+	int log_len, max_log_len;
+	char* log;
+
+	// Get the maximum possible length of the log.
+	glGetShaderiv(shader_id, GL_INFO_LOG_LENGTH, &max_log_len);
+
+	log = new char[max_log_len];
+
+	// Now get the info log.
+	glGetShaderInfoLog(shader_id, max_log_len, &log_len, log);
+
+	if(log_len > 0)
+		cout << log << endl;
+
+	delete[] log;
+	log = NULL;
+
+	
 }
