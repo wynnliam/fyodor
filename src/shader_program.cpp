@@ -17,12 +17,6 @@ shader_program::shader_program(const string& vert, const string& frag) {
 	string vert_src, frag_src;
 	vert_src = shader_source_from_file(vert);
 	frag_src = shader_source_from_file(frag);
-
-	cout << "From: " << vert << endl;
-	cout << vert_src << endl;
-
-	cout << "\nFrom: " << frag << endl;
-	cout << frag_src << endl;
 }
 
 string shader_program::shader_source_from_file(const string& path) {
@@ -35,6 +29,8 @@ string shader_program::shader_source_from_file(const string& path) {
 		buffer << in.rdbuf();
 
 		result = buffer.str();
+	} else {
+		cout << "Error: bad shader file path: " << path << endl;
 	}
 
 	return result;
