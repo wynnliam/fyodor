@@ -78,6 +78,7 @@ void shader_program::link_shader_program() {
 	glGetProgramiv(id, GL_LINK_STATUS, &link_status);
 	if(link_status != GL_TRUE) {
 		cout << "There was a problem linking shader program: " << id << endl;
+		shader_program_link_log();
 	}
 }
 
@@ -100,3 +101,21 @@ void shader_program::shader_subprogram_compile_log(const GLuint& shader_id) {
 	log = NULL;
 }
 
+void shader_program::shader_program_link_log() {
+	int log_len, max_log_len;
+	char* log;
+
+	// Get the maximum possible length of the log.
+	glGetProgramiv(id, GL_INFO_LOG_LENGTH, &max_log_len);
+
+	log = new char[max_log_len];
+
+	// Now get the info log.
+	glGetProgramInfoLog(id, max_log_len, &log_len, log);
+
+	if(log_len > 0)
+		cout << log << endl;
+
+	delete[] log;
+	log = NULL;
+}

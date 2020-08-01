@@ -81,6 +81,21 @@ namespace fyodor {
 			*/
 			void shader_subprogram_compile_log(const GLuint& shader_id);
 
+			/*
+				Preconditions:
+					- Had to try and link program.
+				Postconditions:
+					- Will print any shader program errors that may be found.
+				Side effects:
+					- None
+				Returns:
+					- N/A
+				Notes:
+					- Will only print link failures.
+				
+			*/
+			void shader_program_link_log();
+
 			// We use these ids when we want to tell OpenGL to use this program
 			// for rendering.
 			GLuint id;
