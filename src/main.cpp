@@ -6,6 +6,7 @@
 //#include "./ray.h"
 #include "./render.h"
 #include "./shader_program.h"
+#include "./texture.h"
 
 using namespace std;
 using namespace fyodor;
@@ -48,6 +49,8 @@ int main(int argc, char** argv) {
 
 	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
 	program.bind();
+
+	texture my_texture("./assets/texture_atlas.png");
 
 	// TODO: Better game loop!
 	while(1)
