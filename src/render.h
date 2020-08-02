@@ -41,6 +41,7 @@ namespace fyodor {
 			- A valid OpenGL context (IE: call start_oepngl).
 		Postconditions:
 			- Opengl is set and ready to run.
+			- DevIL is initialized and ready to run
 		Side Effects:
 			- Initializes Projection and Modelview matricies
 				- Projection matrix is set to orthographic

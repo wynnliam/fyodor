@@ -49,6 +49,8 @@ bool fyodor::initialize_opengl() {
 		return false;
 	}
 
+	ilInit();
+
 	return true;
 }
 
