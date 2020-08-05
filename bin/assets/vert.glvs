@@ -2,7 +2,7 @@
 
 void main() {
 	// Does not transform the vertex whatsoever.
-	gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * gl_Vertex;
+	gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * vec4(gl_Vertex.xy, 0.0, 1.0);
 
 	gl_TexCoord[0] = gl_MultiTexCoord0;
 }

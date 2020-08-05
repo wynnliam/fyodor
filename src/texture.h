@@ -28,6 +28,11 @@ namespace fyodor {
 			*/
 			texture(const std::string& path);
 
+			/*
+				Temporary render function
+			*/
+			void render();
+
 		private:
 			// When rendering texture, we need this to tell OpenGL
 			// what texture to render.

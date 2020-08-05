@@ -4,7 +4,6 @@ uniform sampler2D textureUnit;
 
 void main() {
 	// Every screen pixel is set to red.
-	//gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-	gl_FragColor = texture2d(textureUnit, gl_TexCoord[0].st);
+	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }
 

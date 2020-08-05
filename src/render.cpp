@@ -15,7 +15,7 @@ void fyodor::start_opengl(int argc, char** argv) {
 
 	// Create a double-buffered window
 	// GLUT_DEPTH fixes draw order for faces.
-	glutInitDisplayMode(GLUT_DOUBLE);//| GLUT_MULTISAMPLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
 	glutInitWindowSize(SCREEN_W, SCREEN_H);
 	glutCreateWindow("Fyodor");
 }
