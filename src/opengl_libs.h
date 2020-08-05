@@ -6,7 +6,7 @@
 /*Freeglut windowing utility*/
 #include <GL/freeglut.h>
 /*OpenGL itself -- we're using gl3 from now on for shader programs*/
-#include <GLES3/gl3.h>
+#include <GLES3/gl32.h>
 /*OpenGL utilities*/
 #include <GL/glu.h>
 

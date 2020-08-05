@@ -1,9 +1,13 @@
 // Liam Wynn, 7/31/2020, Fyodor
 
-uniform sampler2D textureUnit;
+#version 300 es
+
+precision mediump float;
+
+out vec4 FragColor;
 
 void main() {
 	// Every screen pixel is set to red.
-	gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 }
 

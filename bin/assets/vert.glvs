@@ -1,8 +1,14 @@
 // Liam Wynn, 7/31/2020, Fyodor
 
+#version 300 es
+
+layout (location = 0) in vec3 aPos;
+
 void main() {
 	// Does not transform the vertex whatsoever.
-	gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * vec4(gl_Vertex.xy, 0.0, 1.0);
+	//gl_Position = gl_ProjectionMatrix * gl_ModelViewMatrix * vec4(gl_Vertex.xy, 0.0, 1.0);
 
-	gl_TexCoord[0] = gl_MultiTexCoord0;
+	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+
+	//gl_TexCoord[0] = gl_MultiTexCoord0;
 }
