@@ -4,10 +4,11 @@
 
 precision mediump float;
 
+uniform vec4 our_color;
+
 out vec4 FragColor;
 
 void main() {
-	// Every screen pixel is set to red.
-	FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+	FragColor = our_color;
 }
 

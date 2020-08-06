@@ -66,6 +66,7 @@ void shader_program::compile_shader_subprogram(const string& src, GLenum shader_
 		shader_subprogram_compile_log(shader_id);
 		compiled_successfully = false;
 	}
+
 }
 
 void shader_program::link_shader_program() {
@@ -122,4 +123,8 @@ void shader_program::shader_program_link_log() {
 
 void shader_program::bind() {
 	glUseProgram(id);
+
+	// TODO: Method for setting program uniforms
+	int our_color_location = glGetUniformLocation(id, "our_color");
+	glUniform4f(our_color_location, 0.4f, 1.0f, 0.2f, 1.0f);
 }
