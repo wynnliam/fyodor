@@ -74,7 +74,7 @@ namespace fyodor {
 			my bearings with OpenGL. This may be totally deprecated
 			in the future.
 	*/
-	void do_render();
+	void do_render(const GLuint tex_id);
 }
 
 #endif

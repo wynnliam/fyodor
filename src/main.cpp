@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 
 	// TODO: Better game loop!
 	while(1)
-		do_render();
+		do_render(my_texture.get_id());
 		//my_texture.render();
 
 	return 0;

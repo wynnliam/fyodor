@@ -9,9 +9,6 @@ using namespace std;
 texture::texture(const std::string& path) {
 	// Temporary IL texture id
 	ILuint image_id;
-	// We copy this into OpenGL so then we can get rid of
-	// the IL data
-	ILubyte* raw_image_data;
 
 	// First, we need to generate our image id
 	ilGenImages(1, &image_id);
@@ -25,24 +22,21 @@ texture::texture(const std::string& path) {
 		return;
 	}
 
-	// Okay the texture data is loaded. Now we need to copy it into raw_image_data.
-	raw_image_data = new ILubyte[ilGetInteger(IL_IMAGE_SIZE_OF_DATA)];
-	// Now we copy the data from IL into raw_image_data.
-	ilCopyPixels(0, 0, 0, ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT),
-				 ilGetInteger(IL_IMAGE_DEPTH), ilGetInteger(IL_IMAGE_FORMAT),
-				 ilGetInteger(IL_IMAGE_TYPE), raw_image_data);
+	ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
+
+	GLuint* raw_data = (GLuint*)ilGetData();
+	GLuint img_w = (GLuint)ilGetInteger(IL_IMAGE_WIDTH);
+	GLuint img_h = (GLuint)ilGetInteger(IL_IMAGE_HEIGHT);
 
 	// Okay now we generate a texture in OpenGL.
 	glGenTextures(1, &id);
 	// Now bind it so we can do OpenGL operations on it.
 	glBindTexture(GL_TEXTURE_2D, id);
-	// Now we copy the raw image data into OpenGL.
-	glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_FORMAT),
-				 ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT),
-				 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE,
-				 (GLubyte*)raw_image_data);
 
-	// Now we clean up!
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_w, img_h, 0, GL_RGBA, GL_UNSIGNED_BYTE, raw_data);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
 	ilDeleteImage(image_id);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }

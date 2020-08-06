@@ -28,6 +28,8 @@ namespace fyodor {
 			*/
 			texture(const std::string& path);
 
+			GLuint get_id() const { return id; }
+
 			/*
 				Temporary render function
 			*/
