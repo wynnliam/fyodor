@@ -125,6 +125,6 @@ void shader_program::bind() {
 	glUseProgram(id);
 
 	// TODO: Method for setting program uniforms
-	int our_color_location = glGetUniformLocation(id, "our_color");
-	glUniform4f(our_color_location, 0.4f, 1.0f, 0.2f, 1.0f);
+	//int our_color_location = glGetUniformLocation(id, "our_color");
+	//glUniform4f(our_color_location, 0.4f, 1.0f, 0.2f, 1.0f);
 }
