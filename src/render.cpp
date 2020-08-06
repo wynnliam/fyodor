@@ -23,9 +23,6 @@ float verts[] = {
 unsigned int vbo;
 unsigned int vao;
 
-// Matrix that will scale and rotate objects
-glm::mat4 trans = glm::mat4(1.0f);
-
 void fyodor::start_opengl(int argc, char** argv) {
 	// First, we initialize glut.
 	glutInit(&argc, argv);
@@ -69,8 +66,6 @@ bool fyodor::initialize_opengl() {
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(2);
 
-	trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-	trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 0.5f));
 	return true;
 }
 

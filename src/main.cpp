@@ -47,16 +47,15 @@ int main(int argc, char** argv) {
 	if(!initialize_opengl())
 		return 1;
 
-	glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
-	
+	/*glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
 	// Quick way to make a transformation matrix
 	glm::mat4 trans = glm::mat4(1.0f); // Creates an identity matrix
 	trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f)); // Will build translation matrix
 
 	vec = trans * vec;
-	cout << vec.x << " " << vec.y << " " << vec.z << endl;
+	cout << vec.x << " " << vec.y << " " << vec.z << endl;*/
 
-	/*shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
+	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
 	program.bind();
 
 	texture my_texture("./assets/texture_atlas.png");
@@ -64,7 +63,7 @@ int main(int argc, char** argv) {
 	// TODO: Better game loop!
 	while(1)
 		do_render(my_texture.get_id());
-		//my_texture.render();*/
+		//my_texture.render();
 
 	return 0;
 }

@@ -9,8 +9,10 @@ layout (location = 2) in vec2 aTex;
 out vec3 our_color;
 out vec2 our_texture;
 
+uniform mat4 transform;
+
 void main() {
-	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+	gl_Position = transform * vec4(aPos.x, aPos.y, aPos.z, 1.0);
 
 	our_color = aColor;
 	our_texture = aTex;
