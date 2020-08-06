@@ -10,6 +10,11 @@
 /*OpenGL utilities*/
 #include <GL/glu.h>
 
+/* GLM headers */
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 /*IL library - the base library to load, save, and convert images*/
 #include <IL/il.h>
 /*IL Utilities library - mid level library for image manipulation*/
