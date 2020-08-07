@@ -153,4 +153,16 @@ void shader_program::bind() {
 	// matrix that uses a perspective projection.
 	glm::mat4 projection_matrix;
 	projection_matrix = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
+
+	// Now we bind these matricies to the program
+	unsigned int model_loc = glGetUniformLocation(id, "model_matrix");
+	glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
+
+	unsigned int view_loc = glGetUniformLocation(id, "view_matrix");
+	glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view_matrix));
+
+	unsigned int proj_loc = glGetUniformLocation(id, "proj_matrix");
+	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(projection_matrix));
+	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
+	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 }

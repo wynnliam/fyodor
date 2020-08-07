@@ -9,10 +9,13 @@ layout (location = 2) in vec2 aTex;
 out vec3 our_color;
 out vec2 our_texture;
 
-uniform mat4 transform;
+uniform mat4 model_matrix;
+uniform mat4 view_matrix;
+uniform mat4 proj_matrix;
 
 void main() {
-	gl_Position = transform * vec4(aPos.x, aPos.y, aPos.z, 1.0);
+	//gl_Position = transform * vec4(aPos.x, aPos.y, aPos.z, 1.0);
+	gl_Position = proj_matrix * view_matrix * model_matrix * vec4(aPos, 1.0);
 
 	our_color = aColor;
 	our_texture = aTex;
