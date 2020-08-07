@@ -28,6 +28,10 @@ texture::texture(const std::string& path) {
 	GLuint img_w = (GLuint)ilGetInteger(IL_IMAGE_WIDTH);
 	GLuint img_h = (GLuint)ilGetInteger(IL_IMAGE_HEIGHT);
 
+	// Save the image dimensions
+	width = img_w;
+	height = img_h;
+
 	// Okay now we generate a texture in OpenGL.
 	glGenTextures(1, &id);
 	// Now bind it so we can do OpenGL operations on it.

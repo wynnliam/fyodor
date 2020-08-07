@@ -30,6 +30,9 @@ namespace fyodor {
 
 			GLuint get_id() const { return id; }
 
+			unsigned int get_width() const { return width; }
+			unsigned int get_height() const { return height; }
+
 			/*
 				Temporary render function
 			*/
@@ -39,6 +42,9 @@ namespace fyodor {
 			// When rendering texture, we need this to tell OpenGL
 			// what texture to render.
 			GLuint id;
+
+			// Texture dimensions in pixels
+			unsigned int width, height;
 	};
 }
 
