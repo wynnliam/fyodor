@@ -73,7 +73,6 @@ void fyodor::do_render(const GLuint texture_id) {
 	// Clears color
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	glBindTexture(GL_TEXTURE_2D, texture_id);
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 
