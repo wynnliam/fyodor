@@ -24,8 +24,6 @@ namespace fyodor {
 					- Must have a properly loaded texture
 				Postconditions:
 					- Sets the properties needed for the tilemap.
-					You can now construct the tilemap as you please,
-					and then call construct_vao.
 				Side effects:
 					- N/A
 				Notes:
@@ -38,6 +36,10 @@ namespace fyodor {
 			unsigned int width, height;
 			// Reference to the texture used by this map
 			std::shared_ptr<texture> map_tex;
+
+			// I really hate to use a "dumb" pointer, but OpenGL
+			// insists on these.
+			float* map_vao_data;
 	};
 }
 
