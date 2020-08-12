@@ -52,32 +52,3 @@ void texture::bind() {
 void texture::unbind() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
-
-void texture::render() {
-	// Clears color
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	// Will attempt to draw a rectangle
-
-	// Reset all transformations.
-	glLoadIdentity();
-
-	if(id == 0)
-		return;
-
-	glPushMatrix();
-
-	glBindTexture(GL_TEXTURE_2D, id);
-
-	glBegin(GL_QUADS);
-		glTexCoord2f(1.0f, 0.0f); glVertex2f(-1, -1);
-		glTexCoord2f(1.0f, 1.0f); glVertex2f(1, -1);
-		glTexCoord2f(0.0f, 1.0f); glVertex2f(1, 1);
-		glTexCoord2f(0.0f, 0.0f); glVertex2f(-1, 1);
-	glEnd();
-
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-	glPopMatrix();
-	glutSwapBuffers();
-}

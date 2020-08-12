@@ -66,11 +66,6 @@ namespace fyodor {
 			*/
 			void unbind();
 
-			/*
-				Temporary render function
-			*/
-			void render();
-
 		private:
 			// When rendering texture, we need this to tell OpenGL
 			// what texture to render.
