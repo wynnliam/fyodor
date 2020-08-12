@@ -34,6 +34,24 @@ namespace fyodor {
 			unsigned int get_height() const { return height; }
 
 			/*
+				Preconditions:
+					- Texture successfully loaded.
+				Postconditions:
+					- Will set this texture as the one
+					we want to render.
+				Side effects:
+					- Will update OpenGL internally so
+					that this texture is the one we use.
+				Returns:
+					- N/A
+				Notes:
+					- Be sure to call unbind when done using
+					the texture!
+			*/
+			void bind();
+			void unbind();
+
+			/*
 				Temporary render function
 			*/
 			void render();

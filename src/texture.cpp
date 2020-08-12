@@ -45,6 +45,10 @@ texture::texture(const std::string& path) {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+void texture::bind() {
+	glBindTexture(GL_TEXTURE_2D, id);
+}
+
 void texture::render() {
 	// Clears color
 	glClear(GL_COLOR_BUFFER_BIT);
