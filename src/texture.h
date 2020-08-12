@@ -49,6 +49,21 @@ namespace fyodor {
 					the texture!
 			*/
 			void bind();
+
+			/*
+				Preconditions:
+					- Texture must be bound (please call bind)
+				Postconditions:
+					- Texture not bound in OpenGL.
+					- Corollary: Can bind another texture
+					to render.
+				Side effects:
+					- OpenGL modified so that no texture is bound.
+				Returns:
+					- N/A
+				Notes:
+					- Be sure to bind texture before calling this!
+			*/
 			void unbind();
 
 			/*

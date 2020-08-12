@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
 	program.bind();
 
 	texture my_texture("./assets/texture_atlas.png");
-	//my_texture.bind();
+	my_texture.bind();
 
 	// TODO: Better game loop!
 	while(1)
