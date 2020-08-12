@@ -13,14 +13,31 @@
 #ifndef TILEMAP
 #define TILEMAP
 
+#include "./texture.h"
+#include <memory>
+
 namespace fyodor {
 	class tilemap {
 		public:
-			tilemap(unsigned int w, unsigned int h);
+			/*
+				Preconditions:
+					- Must have a properly loaded texture
+				Postconditions:
+					- Sets the properties needed for the tilemap.
+					You can now construct the tilemap as you please,
+					and then call construct_vao.
+				Side effects:
+					- N/A
+				Notes:
+					- N/A
+			*/
+			tilemap(unsigned int w, unsigned int h, std::shared_ptr<texture> tex);
 
 		private:
 			// Describes the dimensions of the map
 			unsigned int width, height;
+			// Reference to the texture used by this map
+			std::shared_ptr<texture> map_tex;
 	};
 }
 
