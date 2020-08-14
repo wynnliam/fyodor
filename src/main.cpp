@@ -2,11 +2,12 @@
 
 #include <iostream>
 #include <string>
+#include <memory>
 
 //#include "./ray.h"
 #include "./render.h"
 #include "./shader_program.h"
-#include "./texture.h"
+#include "./tilemap.h"
 
 using namespace std;
 using namespace fyodor;
@@ -61,9 +62,13 @@ int main(int argc, char** argv) {
 	texture my_texture("./assets/texture_atlas.png");
 	my_texture.bind();
 
+	shared_ptr<texture> tex_atlas = make_shared<texture>("./assets/texture_atlas.png");
+	tex_atlas->bind();
+	tilemap tiles(10, 5, tex_atlas);
+
 	// TODO: Better game loop!
 	while(1)
-		do_render(my_texture.get_id());
+		tiles.render();
 		//my_texture.render();
 
 	return 0;

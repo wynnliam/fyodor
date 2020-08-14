@@ -82,3 +82,14 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 }
+
+void tilemap::render() {
+	// Clears color
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glBindVertexArray(vao_id);
+	glDrawArrays(GL_TRIANGLES, 0, 2 * width * height);
+
+	// Swap window buffers at end of rendering.
+	glutSwapBuffers();
+}

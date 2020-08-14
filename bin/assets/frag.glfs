@@ -7,7 +7,7 @@ precision mediump float;
 // Not using, but useful to know.
 // uniform vec4 our_color;
 
-in vec3 our_color;
+//in vec3 our_color;
 in vec2 our_texture;
 
 out vec4 FragColor;

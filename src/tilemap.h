@@ -31,6 +31,8 @@ namespace fyodor {
 			*/
 			tilemap(unsigned int w, unsigned int h, std::shared_ptr<texture> tex);
 
+			void render();
+
 		private:
 			// Describes the dimensions of the map
 			unsigned int width, height;
