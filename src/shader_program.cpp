@@ -143,7 +143,7 @@ void shader_program::bind() {
 	// Why do we need this? In local space, the width and height of the object are both 1.
 	// When we apply our projection matrix, the object will have a size of 1 pixel by 1 pixel.
 	// So we need to scale it according to the size of the texture.
-	model_matrix = glm::scale(model_matrix, glm::vec3(48, 32, 1));
+	model_matrix = glm::scale(model_matrix, glm::vec3(16, 16, 1));
 
 	// Now transform the scene to account for the camera. TO do this, we move the
 	// scene in the reverse direction of the camera. If the camera is moving to the left,

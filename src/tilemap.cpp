@@ -22,53 +22,53 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 			vao_index = 24 * index;
 
 			// First triangle top left vert
-			map_vao_data[index] = x - 0.5f;
-			map_vao_data[index + 1] = y + 0.5f;
+			map_vao_data[vao_index] = x - 0.5f;
+			map_vao_data[vao_index + 1] = y + 0.5f;
 
 			// First triangle top left vert uv
 			// TODO: Tile atlas!
-			map_vao_data[index + 2] = 0.0f;
-			map_vao_data[index + 3] = 1.0f;
+			map_vao_data[vao_index + 2] = 0.0f;
+			map_vao_data[vao_index + 3] = 1.0f;
 
 			// First triangle top right vert
-			map_vao_data[index + 4] = x + 0.5f;
-			map_vao_data[index + 5] = y + 0.5f;
+			map_vao_data[vao_index + 4] = x + 0.5f;
+			map_vao_data[vao_index + 5] = y + 0.5f;
 
 			// First triangle top right vert uv
-			map_vao_data[index + 6] = 1.0f / 3.0f;
-			map_vao_data[index + 7] = 1.0f;
+			map_vao_data[vao_index + 6] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 7] = 1.0f;
 
 			// First triangle bottom left vert
-			map_vao_data[index + 8] = x - 0.5f;
-			map_vao_data[index + 9] = y - 0.5f;
+			map_vao_data[vao_index + 8] = x - 0.5f;
+			map_vao_data[vao_index + 9] = y - 0.5f;
 
 			// First triangle bottom left vert uv
-			map_vao_data[index + 10] = 0.0f;
-			map_vao_data[index + 11] = 0.5f;
+			map_vao_data[vao_index + 10] = 0.0f;
+			map_vao_data[vao_index + 11] = 0.5f;
 
 			// Second triangle  bottom left vert
-			map_vao_data[index + 12] = x - 0.5f;
-			map_vao_data[index + 13] = y - 0.5f;
+			map_vao_data[vao_index + 12] = x - 0.5f;
+			map_vao_data[vao_index + 13] = y - 0.5f;
 
 			// Second triangle bottom left vert uv
-			map_vao_data[index + 14] = 0.0f;
-			map_vao_data[index + 15] = 0.5f;
+			map_vao_data[vao_index + 14] = 0.0f;
+			map_vao_data[vao_index + 15] = 0.5f;
 
 			// Second triangle bottom right
-			map_vao_data[index + 16] = x + 0.5f;
-			map_vao_data[index + 17] = y - 0.5f;
+			map_vao_data[vao_index + 16] = x + 0.5f;
+			map_vao_data[vao_index + 17] = y - 0.5f;
 
 			// Second triangle bottom right uv
-			map_vao_data[index + 18] = 1.0f / 3.0f;
-			map_vao_data[index + 19] = 0.5f;
+			map_vao_data[vao_index + 18] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 19] = 0.5f;
 
 			// Second triangle top right vert
-			map_vao_data[index + 20] = x + 0.5f;
-			map_vao_data[index + 21] = y + 0.5f;
+			map_vao_data[vao_index + 20] = x + 0.5f;
+			map_vao_data[vao_index + 21] = y + 0.5f;
 
 			// First triangle top right vert uv
-			map_vao_data[index + 22] = 1.0f / 3.0f;
-			map_vao_data[index + 23] = 1.0f;
+			map_vao_data[vao_index + 22] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 23] = 1.0f;
 		}
 	}
 
@@ -88,7 +88,7 @@ void tilemap::render() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBindVertexArray(vao_id);
-	glDrawArrays(GL_TRIANGLES, 0, 2 * width * height);
+	glDrawArrays(GL_TRIANGLES, 0, 6 * width * height);
 
 	// Swap window buffers at end of rendering.
 	glutSwapBuffers();
