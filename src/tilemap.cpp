@@ -71,4 +71,14 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 			map_vao_data[index + 23] = 1.0f;
 		}
 	}
+
+	glGenVertexArrays(1, &vao_id);
+	glGenBuffers(1, &vbo_id);
+	glBindVertexArray(vao_id);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * num_floats, map_vao_data, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+	glEnableVertexAttribArray(1);
 }

@@ -40,6 +40,9 @@ namespace fyodor {
 			// I really hate to use a "dumb" pointer, but OpenGL
 			// insists on these.
 			float* map_vao_data;
+
+			// OpenGL identifiers for VAO/VBO data
+			unsigned int vao_id, vbo_id;
 	};
 }
 
