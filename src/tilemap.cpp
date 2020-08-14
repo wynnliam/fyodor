@@ -28,7 +28,7 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 			// First triangle top left vert uv
 			// TODO: Tile atlas!
 			map_vao_data[vao_index + 2] = 0.0f;
-			map_vao_data[vao_index + 3] = 1.0f;
+			map_vao_data[vao_index + 3] = 0.0f;
 
 			// First triangle top right vert
 			map_vao_data[vao_index + 4] = x + 0.5f;
@@ -36,7 +36,7 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 
 			// First triangle top right vert uv
 			map_vao_data[vao_index + 6] = 1.0f / 3.0f;
-			map_vao_data[vao_index + 7] = 1.0f;
+			map_vao_data[vao_index + 7] = 0.0f;
 
 			// First triangle bottom left vert
 			map_vao_data[vao_index + 8] = x - 0.5f;
@@ -68,7 +68,7 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 
 			// First triangle top right vert uv
 			map_vao_data[vao_index + 22] = 1.0f / 3.0f;
-			map_vao_data[vao_index + 23] = 1.0f;
+			map_vao_data[vao_index + 23] = 0.0f;
 		}
 	}
 
