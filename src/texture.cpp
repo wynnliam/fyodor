@@ -18,6 +18,7 @@ texture::texture(const std::string& path) {
 
 	if(!ilLoadImage(path.c_str())) {
 		cout << "Failed to load image: " << path << endl;
+		ilDeleteImage(image_id);
 		id = 0;
 		return;
 	}
@@ -43,6 +44,12 @@ texture::texture(const std::string& path) {
 
 	ilDeleteImage(image_id);
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+texture::~texture() {
+	if(id != 0) {
+		glDeleteTextures(1, &id);
+	}
 }
 
 void texture::bind() {

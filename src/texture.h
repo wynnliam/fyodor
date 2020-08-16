@@ -27,6 +27,7 @@ namespace fyodor {
 					- None
 			*/
 			texture(const std::string& path);
+			~texture();
 
 			GLuint get_id() const { return id; }
 
