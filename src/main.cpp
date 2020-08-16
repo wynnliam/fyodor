@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
 	tilemap tiles(10, 5, tex_atlas);
 
 	// TODO: Better game loop!
-	while(1)
+	//while(1)
 		tiles.render();
 		//my_texture.render();
 

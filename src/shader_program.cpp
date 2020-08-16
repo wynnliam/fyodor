@@ -22,11 +22,41 @@ shader_program::shader_program(const string& vert, const string& frag) {
 	// Assume true for now. If either fail we set to false.
 	compiled_successfully = true;
 	compile_shader_subprogram(vert_src, GL_VERTEX_SHADER, vert_id);
+	if(compiled_successfully == false) {
+		vert_id = 0;
+		frag_id = 0;
+		glDeleteProgram(id);
+		id = 0;
+		return;
+	}
+
 	compile_shader_subprogram(frag_src, GL_FRAGMENT_SHADER, frag_id);
+	if(compiled_successfully == false) {
+		vert_id = 0;
+		frag_id = 0;
+		glDeleteProgram(id);
+		id = 0;
+		return;
+	}
 
 	// Now that we compiled, we will attach the shader subprograms to
 	// our overall program and then link it
+	linked_successfully = true;
 	link_shader_program();
+
+	glDeleteShader(vert_id);
+	glDeleteShader(frag_id);
+}
+
+shader_program::~shader_program() {
+	// Otherwise we freed already.
+	if(compiled_successfully && linked_successfully) {
+		glDeleteProgram(id);
+	}
+
+	id = 0;
+	vert_id = 0;
+	frag_id = 0;
 }
 
 string shader_program::shader_source_from_file(const string& path) {
@@ -65,6 +95,9 @@ void shader_program::compile_shader_subprogram(const string& src, GLenum shader_
 		cout << "There was an error compiling shader: " << shader_id << endl;
 		shader_subprogram_compile_log(shader_id);
 		compiled_successfully = false;
+
+		glDeleteShader(shader_id);
+		shader_id = 0;
 	}
 
 }
@@ -78,8 +111,17 @@ void shader_program::link_shader_program() {
 	GLint link_status;
 	glGetProgramiv(id, GL_LINK_STATUS, &link_status);
 	if(link_status != GL_TRUE) {
+		linked_successfully = false;
 		cout << "There was a problem linking shader program: " << id << endl;
 		shader_program_link_log();
+
+		glDeleteShader(vert_id);
+		glDeleteShader(frag_id);
+		glDeleteProgram(id);
+
+		vert_id = 0;
+		frag_id = 0;
+		id = 0;
 	}
 }
 

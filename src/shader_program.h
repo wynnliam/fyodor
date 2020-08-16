@@ -18,6 +18,7 @@ namespace fyodor {
 	class shader_program {
 		public:
 			shader_program(const std::string& vert, const std::string& frag);
+			~shader_program();
 
 			/*
 				Preconditions:
