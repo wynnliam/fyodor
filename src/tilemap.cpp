@@ -83,6 +83,16 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : widt
 	glEnableVertexAttribArray(1);
 }
 
+tilemap::~tilemap() {
+	if(map_vao_data)
+		delete[] map_vao_data;
+
+	map_vao_data = NULL;
+
+	glDeleteBuffers(1, &vbo_id);
+	glDeleteVertexArrays(1, &vao_id);
+}
+
 void tilemap::render() {
 	// Clears color
 	glClear(GL_COLOR_BUFFER_BIT);

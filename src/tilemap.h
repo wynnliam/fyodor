@@ -30,6 +30,7 @@ namespace fyodor {
 					- N/A
 			*/
 			tilemap(unsigned int w, unsigned int h, std::shared_ptr<texture> tex);
+			~tilemap();
 
 			void render();
 
