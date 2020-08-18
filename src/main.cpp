@@ -8,6 +8,7 @@
 #include "./render.h"
 #include "./shader_program.h"
 #include "./tilemap.h"
+#include "./tile_atlas.h"
 
 using namespace std;
 using namespace fyodor;
@@ -59,15 +60,18 @@ int main(int argc, char** argv) {
 	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
 	program.bind();
 
-	texture my_texture("./assets/texture_atlas.png");
-	my_texture.bind();
+	/*texture my_texture("./assets/texture_atlas.png");
+	my_texture.bind();*/
+
+	shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
+	tile_atlas atlas(map_tex);
 
 	shared_ptr<texture> tex_atlas = make_shared<texture>("./assets/texture_atlas.png");
 	tex_atlas->bind();
 	tilemap tiles(10, 5, tex_atlas);
 
 	// TODO: Better game loop!
-	//while(1)
+	while(1)
 		tiles.render();
 		//my_texture.render();
 

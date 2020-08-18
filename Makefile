@@ -7,7 +7,7 @@ OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
 ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o shader_program.o tilemap.o \
-			texture.o
+			texture.o tile_atlas.o
 
 all: clean compile_all link_all
 
@@ -52,6 +52,11 @@ TEXTURE_S= ./src/texture.cpp
 TEXTURE_O= ./bin/obj/texture.o
 texture.o: $(TEXTURE_S)
 	$(COMPILER) $(FLAGS) -c $(TEXTURE_S) -o $(TEXTURE_O)
+
+TILE_ATLAS_S= ./src/tile_atlas.cpp
+TILE_ATLAS_O= ./bin/obj/tile_atlas.o
+tile_atlas.o: $(TILE_ATLAS_S)
+	$(COMPILER) $(FLAGS) -c $(TILE_ATLAS_S) -o $(TILE_ATLAS_O)
 
 # Specific build recipies
 .phony: clean
