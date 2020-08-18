@@ -5,7 +5,7 @@
 using namespace fyodor;
 using namespace std;
 
-tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<texture> tex) : width(w), height(h), map_tex(tex) {
+tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<tile_atlas> a) : width(w), height(h), atlas(a) {
 	unsigned int tile_count = width * height;
 
 	// Two floats for a position, and two floats

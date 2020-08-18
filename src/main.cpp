@@ -64,11 +64,10 @@ int main(int argc, char** argv) {
 	my_texture.bind();*/
 
 	shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
-	tile_atlas atlas(map_tex);
+	map_tex->bind();
+	shared_ptr<tile_atlas> atlas = make_shared<tile_atlas>(map_tex);
 
-	shared_ptr<texture> tex_atlas = make_shared<texture>("./assets/texture_atlas.png");
-	tex_atlas->bind();
-	tilemap tiles(10, 5, tex_atlas);
+	tilemap tiles(10, 5, atlas);
 
 	// TODO: Better game loop!
 	while(1)

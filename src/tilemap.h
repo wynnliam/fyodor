@@ -13,7 +13,7 @@
 #ifndef TILEMAP
 #define TILEMAP
 
-#include "./texture.h"
+#include "./tile_atlas.h"
 #include <memory>
 
 namespace fyodor {
@@ -29,7 +29,7 @@ namespace fyodor {
 				Notes:
 					- N/A
 			*/
-			tilemap(unsigned int w, unsigned int h, std::shared_ptr<texture> tex);
+			tilemap(unsigned int w, unsigned int h, std::shared_ptr<tile_atlas> a);
 			~tilemap();
 
 			void render();
@@ -37,8 +37,8 @@ namespace fyodor {
 		private:
 			// Describes the dimensions of the map
 			unsigned int width, height;
-			// Reference to the texture used by this map
-			std::shared_ptr<texture> map_tex;
+			// Reference to the tile atlas used in this map.
+			std::shared_ptr<tile_atlas> atlas;
 
 			// I really hate to use a "dumb" pointer, but OpenGL
 			// insists on these.
