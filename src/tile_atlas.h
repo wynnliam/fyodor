@@ -13,6 +13,8 @@
 #define TILE_ATLAS
 
 #include <memory>
+#include <vector>
+#include <glm/glm.hpp>
 #include "./texture.h"
 
 namespace fyodor {
@@ -31,6 +33,21 @@ namespace fyodor {
 					- None
 			*/
 			tile_atlas(std::shared_ptr<texture> tex);
+
+			/*
+				Preconditions:
+					- None
+				Postconditions:
+					- None
+				Side-effects:
+					- None
+				Returns:
+					- The uv coordinates for texture at a given index.
+				Notes:
+					- texture_index must be between 0 and num_rows * num_cols.
+					If not, we use the value 0.
+			*/
+			std::vector<glm::vec2> uv_coords(const unsigned int texture_index);
 
 		private:
 			std::shared_ptr<texture> map_tex;

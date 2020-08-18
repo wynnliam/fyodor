@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
 
 //#include "./ray.h"
 #include "./render.h"
@@ -66,6 +67,12 @@ int main(int argc, char** argv) {
 	shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
 	map_tex->bind();
 	shared_ptr<tile_atlas> atlas = make_shared<tile_atlas>(map_tex);
+
+	vector<glm::vec2> uvs = atlas->uv_coords(1);
+
+	for(auto i = uvs.begin(); i != uvs.end(); i++) {
+		cout << i->x << ", " << i->y << endl;
+	}
 
 	tilemap tiles(10, 5, atlas);
 
