@@ -68,13 +68,8 @@ int main(int argc, char** argv) {
 	map_tex->bind();
 	shared_ptr<tile_atlas> atlas = make_shared<tile_atlas>(map_tex);
 
-	vector<glm::vec2> uvs = atlas->uv_coords(1);
-
-	for(auto i = uvs.begin(); i != uvs.end(); i++) {
-		cout << i->x << ", " << i->y << endl;
-	}
-
 	tilemap tiles(10, 5, atlas);
+	tiles.set_tile(3, 4, 2);
 
 	// TODO: Better game loop!
 	while(1)

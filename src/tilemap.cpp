@@ -93,6 +93,44 @@ tilemap::~tilemap() {
 	glDeleteVertexArrays(1, &vao_id);
 }
 
+void tilemap::set_tile(const unsigned int row, const unsigned int col, const unsigned int type) {
+	// tl -> 0, tr -> 1, bl -> 2, br -> 3
+	vector<glm::vec2> uv_coords = atlas->uv_coords(type);
+
+	unsigned int index = row * width + col;
+	unsigned int vao_index = index * 24;
+
+	// First triangle
+	// Top Left uv
+	map_vao_data[vao_index + 2] = uv_coords[0].x;
+	map_vao_data[vao_index + 3] = uv_coords[0].y;
+
+	// Top Right uv
+	map_vao_data[vao_index + 6] = uv_coords[1].x;
+	map_vao_data[vao_index + 7] = uv_coords[1].y;
+
+	// Bottom Left uv
+	map_vao_data[vao_index + 10] = uv_coords[2].x;
+	map_vao_data[vao_index + 11] = uv_coords[2].y;
+
+	// Second triangle
+	// Bottom left uv
+	map_vao_data[vao_index + 14] = uv_coords[2].x;
+	map_vao_data[vao_index + 15] = uv_coords[2].y;
+
+	// Bottom right uv
+	map_vao_data[vao_index + 18] = uv_coords[3].x;
+	map_vao_data[vao_index + 19] = uv_coords[3].y;
+
+	// Top right uv
+	map_vao_data[vao_index + 22] = uv_coords[1].x;
+	map_vao_data[vao_index + 23] = uv_coords[1].y;
+
+	glBindVertexArray(vao_id);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24 * width * height, map_vao_data, GL_STATIC_DRAW);
+}
+
 void tilemap::render() {
 	// Clears color
 	glClear(GL_COLOR_BUFFER_BIT);

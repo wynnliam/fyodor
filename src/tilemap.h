@@ -32,6 +32,22 @@ namespace fyodor {
 			tilemap(unsigned int w, unsigned int h, std::shared_ptr<tile_atlas> a);
 			~tilemap();
 
+			/*
+				Preconditions:
+					- Tilemap properly initialized
+				Postconditions:
+					- Sets the tile at [row, col] to type. See Notes
+					- Modifies map_vao_data to reflect change.
+				Side Effects:
+					- None
+				Notes:
+					- row and col must be within the bounds of tile map.
+					- Type must be a valid texture id for atlas.
+				Returns:
+					- None
+			*/
+			void set_tile(const unsigned int row, const unsigned int col, const unsigned int type);
+
 			void render();
 
 		private:
