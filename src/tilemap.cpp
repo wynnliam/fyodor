@@ -81,6 +81,7 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<tile_atlas> a) : wid
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1);
+	glBindVertexArray(0);
 }
 
 tilemap::~tilemap() {
@@ -128,7 +129,9 @@ void tilemap::set_tile(const unsigned int row, const unsigned int col, const uns
 
 	glBindVertexArray(vao_id);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24 * width * height, map_vao_data, GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24 * width * height, map_vao_data, GL_STATIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(float) * 24 * width * height, (void*)map_vao_data);
+	glBindVertexArray(0);
 }
 
 void tilemap::render() {
@@ -137,6 +140,7 @@ void tilemap::render() {
 
 	glBindVertexArray(vao_id);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * width * height);
+	glBindVertexArray(0);
 
 	// Swap window buffers at end of rendering.
 	glutSwapBuffers();
