@@ -130,6 +130,7 @@ void tilemap::set_tile(const unsigned int row, const unsigned int col, const uns
 	glBindVertexArray(vao_id);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo_id);
 	//glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24 * width * height, map_vao_data, GL_STATIC_DRAW);
+	// TODO: Only copy propportion you actually change, rather than entire array.
 	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(float) * 24 * width * height, (void*)map_vao_data);
 	glBindVertexArray(0);
 }
