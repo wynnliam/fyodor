@@ -7,22 +7,6 @@
 using namespace fyodor;
 using namespace std;
 
-float verts[] = {
-	// Positions	    // Colors	      // Texture
-	// First Triangle
-	-0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-	 0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-	-0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-
-	// Second Triangle
-	-0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-	 0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-	 0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f
-};
-
-unsigned int vbo;
-unsigned int vao;
-
 void fyodor::start_opengl(int argc, char** argv) {
 	// First, we initialize glut.
 	glutInit(&argc, argv);
@@ -49,33 +33,5 @@ bool fyodor::initialize_opengl() {
 
 	ilInit();
 
-	/*glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);*/
-
-	glGenVertexArrays(1, &vao);
-	glGenBuffers(1, &vbo);
-	glBindVertexArray(vao);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-	glEnableVertexAttribArray(2);
-
 	return true;
-}
-
-void fyodor::do_render(const GLuint texture_id) {
-	// Clears color
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	glBindVertexArray(vao);
-	glDrawArrays(GL_TRIANGLES, 0, 6);
-
-	// Swap window buffers at end of rendering.
-	glutSwapBuffers();
 }

@@ -58,23 +58,6 @@ namespace fyodor {
 			in the future.
 	*/
 	bool initialize_opengl();
-
-	/*
-		Preconditions:
-			- OpenGL is initialized (Please call initialize_opengl).
-		Postconditions:
-			- Performs a single step of rendering
-		Side-Effects:
-			- Clears color buffer bit
-			- Swaps window buffers
-		Returns:
-			- N/A
-		Notes:
-			- TODO: This is apart of a temporary system while I get
-			my bearings with OpenGL. This may be totally deprecated
-			in the future.
-	*/
-	void do_render(const GLuint tex_id);
 }
 
 #endif
