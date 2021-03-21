@@ -180,7 +180,7 @@ void shader_program::bind() {
 
 	// The matrix that transforms the plane from local space to world space.
 	glm::mat4 model_matrix = glm::mat4(1.0f);
-	//model_matrix = glm::rotate(model_matrix, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	//model_matrix = glm::rotate(model_matrix, glm::radians(0.5f), glm::vec3(1.0f, 0.0f, 0.0f));
 	model_matrix = glm::translate(model_matrix, glm::vec3(200.0f, 200.0f, 0.0f));
 	// Why do we need this? In local space, the width and height of the object are both 1.
 	// When we apply our projection matrix, the object will have a size of 1 pixel by 1 pixel.
@@ -191,13 +191,12 @@ void shader_program::bind() {
 	// scene in the reverse direction of the camera. If the camera is moving to the left,
 	// the whole scene moves to the right.
 
-	// In our case, we want to move the camera along the positive z-axis. So the whole
-	// scene is moved negative.
+    // In this case, we needn't do anything.
 	glm::mat4 view_matrix = glm::mat4(1.0f);
 	//view_matrix = glm::translate(view_matrix, glm::vec3(0.0f, 0.0f, -3.0f));
 
 	// Finally, we want to put the scene into clip space. We define a projection
-	// matrix that uses a perspective projection.
+	// matrix that uses a orthogonal projection.
 	glm::mat4 projection_matrix;
 	//projection_matrix = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
 	projection_matrix = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f, -1.0f, 1.0f);
