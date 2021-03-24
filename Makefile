@@ -1,6 +1,6 @@
 COMPILER= g++
 FLAGS=-g --std=c++20
-LINKER_FLAGS= -lm -lGL -lGLU -lglut -lIL
+LINKER_FLAGS= -lm -lGL -lGLU -lglut -lglfw -lIL
 
 EXEC_NAME= fyodor.out
 OBJ= ./bin/obj/*.o
