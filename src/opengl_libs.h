@@ -1,5 +1,12 @@
 // Liam Wynn, 7/30/2020, Fyodor
 
+/*
+  TODO: Glut is fine for a strictly interactive (ie do thing, then response).
+  However, since we want to handle realtime logic, GLFW is the way to go:
+
+  https://gamedev.stackexchange.com/questions/8623/a-good-way-to-build-a-game-loop-in-opengl
+*/
+
 #ifndef OPENGL_LIBS
 #define OPENGL_LIBS
 
