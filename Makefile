@@ -7,7 +7,7 @@ OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
 ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o shader_program.o tilemap.o \
-			texture.o tile_atlas.o state.o
+			texture.o tile_atlas.o state.o state_simulation.o
 
 all: clean compile_all link_all
 
@@ -62,6 +62,11 @@ STATE_S= ./src/state.cpp
 STATE_O= ./bin/obj/state.o
 state.o: $(STATE_S)
 	$(COMPILER) $(FLAGS) -c $(STATE_S) -o $(STATE_O)
+
+STATE_SIM_S= ./src/state_simulation.cpp
+STATE_SIM_O= ./bin/state_simulation.o
+state_simulation.o: $(STATE_SIM_S)
+	$(COMPILER) $(FLAGS) -c $(STATE_SIM_S) -o $(STATE_SIM_O)
 
 # Specific build recipies
 .phony: clean
