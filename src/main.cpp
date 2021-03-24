@@ -9,9 +9,6 @@
 #include "./render.h"
 #include "./state.h"
 #include "./state_simulation.h"
-#include "./shader_program.h"
-#include "./tilemap.h"
-#include "./tile_atlas.h"
 
 using namespace std;
 using namespace fyodor;
@@ -78,23 +75,5 @@ int main(int argc, char** argv) {
 	vec = trans * vec;
 	cout << vec.x << " " << vec.y << " " << vec.z << endl;*/
 
-	shader_program program("./assets/vert.glvs", "./assets/frag.glfs");
-	program.bind();
-
 	/*texture my_texture("./assets/texture_atlas.png");
 	my_texture.bind();*/
-
-	shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
-	map_tex->bind();
-	shared_ptr<tile_atlas> atlas = make_shared<tile_atlas>(map_tex);
-
-	tilemap tiles(10, 5, atlas);
-	tiles.set_tile(3, 4, 2);
-
-	// TODO: Better game loop!
-	while(1)
-		tiles.render();
-		//my_texture.render();
-
-	return 0;
-}

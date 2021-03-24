@@ -9,7 +9,11 @@
 #ifndef GAME_STATE_SIM
 #define GAME_STATE_SIM
 
+#include <memory>
 #include "./state.h"
+#include "./shader_program.h"
+#include "./tilemap.h"
+#include "./tile_atlas.h"
 
 namespace fyodor {
   class state_sim : public gamestate {
@@ -24,6 +28,10 @@ namespace fyodor {
       void draw();
       void leave();
       bool quit();
+
+    private:
+      std::unique_ptr<shader_program> shader;
+      std::unique_ptr<tilemap> tiles;
   };
 }
 
