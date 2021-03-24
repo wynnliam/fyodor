@@ -47,12 +47,11 @@ int main(int argc, char** argv) {
 
   cout << "Welcome to Fyodor!" << endl;
 
-  unique_ptr<gamestate> sim_state = make_unique<state_sim>();
-
   start_opengl(argc, argv);
   if(!initialize_opengl())
     return 1;
 
+  unique_ptr<gamestate> sim_state = make_unique<state_sim>();
   // Now initialize each state
   sim_state->initialize();
 
