@@ -7,6 +7,8 @@
 
 //#include "./ray.h"
 #include "./render.h"
+#include "./state.h"
+#include "./state_simulation.h"
 #include "./shader_program.h"
 #include "./tilemap.h"
 #include "./tile_atlas.h"
@@ -38,7 +40,7 @@ using namespace fyodor;
 }*/
 
 int main(int argc, char** argv) {
-	cout << "Welcome to Fyodor!" << endl;
+
 	/*ray ray_1(vector2d(7, 3), vector2d(-1, 0));
 	aabb box(vector2d(3,3), vector2d(7, 5));
 
@@ -46,10 +48,28 @@ int main(int argc, char** argv) {
 
 	//cout << 0 * numeric_limits<float>::infinity() << endl;*/
 
-	start_opengl(argc, argv);
-	if(!initialize_opengl())
-		return 1;
+  cout << "Welcome to Fyodor!" << endl;
 
+  unique_ptr<gamestate> sim_state = make_unique<state_sim>();
+
+  start_opengl(argc, argv);
+  if(!initialize_opengl())
+    return 1;
+
+  // Now initialize each state
+  sim_state->initialize();
+
+  // Now we want to enter the simulation state
+  sim_state->enter();
+
+  while(1) {
+    sim_state->process_input();
+    sim_state->update();
+    sim_state->draw();
+  }
+
+  return 0;
+}
 	/*glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
 	// Quick way to make a transformation matrix
 	glm::mat4 trans = glm::mat4(1.0f); // Creates an identity matrix

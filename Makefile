@@ -64,7 +64,7 @@ state.o: $(STATE_S)
 	$(COMPILER) $(FLAGS) -c $(STATE_S) -o $(STATE_O)
 
 STATE_SIM_S= ./src/state_simulation.cpp
-STATE_SIM_O= ./bin/state_simulation.o
+STATE_SIM_O= ./bin/obj/state_simulation.o
 state_simulation.o: $(STATE_SIM_S)
 	$(COMPILER) $(FLAGS) -c $(STATE_SIM_S) -o $(STATE_SIM_O)
 
