@@ -1,7 +1,6 @@
 // Liam Wynn, 7/31/2020, Fyodor
 
 #include "./tilemap.h"
-#include "./render.h"
 
 using namespace fyodor;
 using namespace std;
@@ -137,14 +136,7 @@ void tilemap::set_tile(const unsigned int row, const unsigned int col, const uns
 }
 
 void tilemap::render() {
-	// Clears color
-	glClear(GL_COLOR_BUFFER_BIT);
-
 	glBindVertexArray(vao_id);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * width * height);
 	glBindVertexArray(0);
-
-	// Swap window buffers at end of rendering.
-	//glutSwapBuffers();
-    swap_buffers();
 }

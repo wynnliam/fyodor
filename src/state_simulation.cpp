@@ -1,6 +1,7 @@
 // Liam Wynn, 3/22/2021, Fyodor
 
 #include "./state_simulation.h"
+#include "./render.h"
 
 using namespace std;
 using namespace fyodor;
@@ -32,7 +33,14 @@ void state_sim::update() {
 }
 
 void state_sim::draw() {
+  // Clears color
+  glClear(GL_COLOR_BUFFER_BIT);
+
   tiles->render();
+
+  // Swap window buffers at end of rendering.
+  //glutSwapBuffers();
+  swap_buffers();
 }
 
 void state_sim::leave() {
