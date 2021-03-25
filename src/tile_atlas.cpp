@@ -33,3 +33,10 @@ vector<glm::vec2> tile_atlas::uv_coords(const unsigned int texture_index) {
 	return result;
 }
 
+void tile_atlas::bind_tex() {
+  map_tex->bind();
+}
+
+void tile_atlas::unbind_tex() {
+  map_tex->unbind();
+}

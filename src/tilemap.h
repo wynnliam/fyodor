@@ -48,6 +48,9 @@ namespace fyodor {
 			*/
 			void set_tile(const unsigned int row, const unsigned int col, const unsigned int type);
 
+            void bind();
+            void unbind();
+
 			void render();
 
 		private:

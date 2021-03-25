@@ -213,3 +213,7 @@ void shader_program::bind() {
 	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
 	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 }
+
+void shader_program::unbind() {
+  glUseProgram(0);
+}

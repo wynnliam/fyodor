@@ -135,8 +135,18 @@ void tilemap::set_tile(const unsigned int row, const unsigned int col, const uns
 	glBindVertexArray(0);
 }
 
+void tilemap::bind() {
+  atlas->bind_tex();
+}
+
+void tilemap::unbind() {
+  atlas->unbind_tex();
+}
+
 void tilemap::render() {
+    atlas->bind_tex();
 	glBindVertexArray(vao_id);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * width * height);
 	glBindVertexArray(0);
+    atlas->unbind_tex();
 }

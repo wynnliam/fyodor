@@ -14,13 +14,14 @@ state_sim::~state_sim() {
 
 void state_sim::initialize() {
   shader = make_unique<shader_program>("./assets/vert.glvs", "./assets/frag.glfs");
-  shader->bind();
 
+  // TODO tiles will bind atlas (which binds texture). After rendering it unbinds.
   shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
   map_tex->bind();
   shared_ptr<tile_atlas> atlas = make_shared<tile_atlas>(map_tex);
   tiles = make_unique<tilemap>(10, 5, atlas);
   tiles->set_tile(3, 4, 2);
+  tiles->unbind();
 }
 
 void state_sim::enter() {
@@ -36,7 +37,9 @@ void state_sim::draw() {
   // Clears color
   glClear(GL_COLOR_BUFFER_BIT);
 
+  shader->bind();
   tiles->render();
+  shader->unbind();
 
   // Swap window buffers at end of rendering.
   //glutSwapBuffers();
