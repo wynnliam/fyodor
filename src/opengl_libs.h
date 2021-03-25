@@ -12,8 +12,6 @@
 
 /* GLFW Windowing utility*/
 #include <GLFW/glfw3.h>
-/*Freeglut windowing utility*/
-#include <GL/freeglut.h>
 /*OpenGL itself -- we're using gl3 from now on for shader programs*/
 #include <GLES3/gl32.h>
 /*OpenGL utilities*/

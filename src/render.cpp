@@ -31,18 +31,6 @@ void fyodor::start_opengl(int argc, char** argv) {
   }
 
   glfwMakeContextCurrent(window);
-
-/*
-	// First, we initialize glut.
-	glutInit(&argc, argv);
-	// Create an OpenGL 3.0 context
-	glutInitContextVersion(3, 0);
-
-	// Create a double-buffered window
-	// GLUT_DEPTH fixes draw order for faces.
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
-	glutInitWindowSize(SCREEN_W, SCREEN_H);
-	glutCreateWindow("Fyodor");*/
 }
 
 bool fyodor::initialize_opengl() {
