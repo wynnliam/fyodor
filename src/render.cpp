@@ -52,3 +52,8 @@ bool fyodor::initialize_opengl() {
 void fyodor::swap_buffers() {
   glfwSwapBuffers(window);
 }
+
+void fyodor::clean_up_opengl() {
+  glfwDestroyWindow(window);
+  glfwTerminate();
+}

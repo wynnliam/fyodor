@@ -60,6 +60,8 @@ namespace fyodor {
 	bool initialize_opengl();
 
     void swap_buffers();
+
+    void clean_up_opengl();
 }
 
 #endif

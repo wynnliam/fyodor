@@ -64,6 +64,8 @@ int main(int argc, char** argv) {
     sim_state->draw();
   }
 
+  clean_up_opengl();
+
   return 0;
 }
 	/*glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
