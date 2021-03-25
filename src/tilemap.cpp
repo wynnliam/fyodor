@@ -1,6 +1,7 @@
 // Liam Wynn, 7/31/2020, Fyodor
 
 #include "./tilemap.h"
+#include "./render.h"
 
 using namespace fyodor;
 using namespace std;
@@ -144,5 +145,6 @@ void tilemap::render() {
 	glBindVertexArray(0);
 
 	// Swap window buffers at end of rendering.
-	glutSwapBuffers();
+	//glutSwapBuffers();
+    swap_buffers();
 }

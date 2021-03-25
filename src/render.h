@@ -58,6 +58,8 @@ namespace fyodor {
 			in the future.
 	*/
 	bool initialize_opengl();
+
+    void swap_buffers();
 }
 
 #endif

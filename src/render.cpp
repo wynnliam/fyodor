@@ -7,7 +7,32 @@
 using namespace fyodor;
 using namespace std;
 
+static GLFWwindow* window;
+
 void fyodor::start_opengl(int argc, char** argv) {
+  if(!glfwInit()) {
+    cout << "Error initializing GLFW" << endl;
+    exit(-1);
+  }
+
+  // TODO: Terminate with glfwTerminate
+
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
+  glfwWindowHint(GLFW_DOUBLEBUFFER, 1);
+  glfwWindowHint(GLFW_DEPTH_BITS, 1);
+  glfwWindowHint(GLFW_SAMPLES, 1);
+
+  window = glfwCreateWindow(SCREEN_W, SCREEN_H, "Fyodor", NULL, NULL);
+  if(!window) {
+    cout << "Error creating window" << endl;
+    glfwTerminate();
+    exit(-1);
+  }
+
+  glfwMakeContextCurrent(window);
+
+/*
 	// First, we initialize glut.
 	glutInit(&argc, argv);
 	// Create an OpenGL 3.0 context
@@ -17,7 +42,7 @@ void fyodor::start_opengl(int argc, char** argv) {
 	// GLUT_DEPTH fixes draw order for faces.
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_MULTISAMPLE | GLUT_DEPTH);
 	glutInitWindowSize(SCREEN_W, SCREEN_H);
-	glutCreateWindow("Fyodor");
+	glutCreateWindow("Fyodor");*/
 }
 
 bool fyodor::initialize_opengl() {
@@ -34,4 +59,8 @@ bool fyodor::initialize_opengl() {
 	ilInit();
 
 	return true;
+}
+
+void fyodor::swap_buffers() {
+  glfwSwapBuffers(window);
 }
