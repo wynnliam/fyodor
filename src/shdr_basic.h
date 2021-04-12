@@ -13,6 +13,8 @@
 
 namespace fyodor {
   class basic_shader : public shader_program {
+    public:
+      basic_shader();
   };
 }
 

@@ -13,7 +13,7 @@ state_sim::~state_sim() {
 }
 
 void state_sim::initialize() {
-  shader = make_unique<shader_program>("./assets/vert.glvs", "./assets/frag.glfs");
+  shader = make_unique<basic_shader>();
 
   // TODO tiles will bind atlas (which binds texture). After rendering it unbinds.
   shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");

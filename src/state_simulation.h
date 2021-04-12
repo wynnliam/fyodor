@@ -11,7 +11,8 @@
 
 #include <memory>
 #include "./state.h"
-#include "./shader_program.h"
+//#include "./shader_program.h"
+#include "./shdr_basic.h"
 #include "./tilemap.h"
 #include "./tile_atlas.h"
 
@@ -30,7 +31,7 @@ namespace fyodor {
       bool quit();
 
     private:
-      std::unique_ptr<shader_program> shader;
+      std::unique_ptr<basic_shader> shader;
       std::unique_ptr<tilemap> tiles;
   };
 }
