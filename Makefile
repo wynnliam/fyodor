@@ -6,8 +6,8 @@ EXEC_NAME= fyodor.out
 OBJ= ./bin/obj/*.o
 
 # Commands and their prerequisites
-ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o shader_program.o tilemap.o \
-			texture.o tile_atlas.o state.o state_simulation.o
+ALL_PREREQ= main.o vector2d.o aabb.o ray.o render.o shader_program.o basic_shader.o \
+            tilemap.o texture.o tile_atlas.o state.o state_simulation.o
 
 all: clean compile_all link_all
 
@@ -47,6 +47,11 @@ SHADER_PROGRAM_S= ./src/shader_program.cpp
 SHADER_PROGRAM_O= ./bin/obj/shader_program.o
 shader_program.o: $(SHADER_PROGRAM_S)
 	$(COMPILER) $(FLAGS) -c $(SHADER_PROGRAM_S) -o $(SHADER_PROGRAM_O)
+
+SHADER_BASIC_S=./src/shdr_basic.cpp
+SHADER_BASIC_O= ./bin/obj/shdr_baisc.o
+basic_shader.o: $(SHADER_BASIC_S)
+	$(COMPILER) $(FLAGS) -c $(SHADER_BASIC_S) -o $(SHADER_BASIC_O)
 
 TEXTURE_S= ./src/texture.cpp
 TEXTURE_O= ./bin/obj/texture.o

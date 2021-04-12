@@ -35,7 +35,7 @@ namespace fyodor {
 					compiling, or linking steps.
 			*/
 			void bind();
-            void unbind();
+      void unbind();
 
 		private:
 			/*
