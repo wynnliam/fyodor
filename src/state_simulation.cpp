@@ -15,6 +15,19 @@ state_sim::~state_sim() {
 void state_sim::initialize() {
   shader = make_unique<basic_shader>();
 
+  /* Demo code setting the shader uniforms */
+  shader->bind();
+	// The matrix that transforms the plane from local space to world space.
+	glm::mat4 model_matrix = glm::mat4(1.0f);
+	//model_matrix = glm::rotate(model_matrix, glm::radians(0.5f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model_matrix = glm::translate(model_matrix, glm::vec3(200.0f, 200.0f, 0.0f));
+	// Why do we need this? In local space, the width and height of the object are both 1.
+	// When we apply our projection matrix, the object will have a size of 1 pixel by 1 pixel.
+	// So we need to scale it according to the size of the texture.
+	model_matrix = glm::scale(model_matrix, glm::vec3(16, 16, 1));
+  shader->set_model_matrix(model_matrix);
+  shader->unbind();
+
   // TODO tiles will bind atlas (which binds texture). After rendering it unbinds.
   shared_ptr<texture> map_tex = make_shared<texture>("./assets/texture_atlas.png");
   map_tex->bind();

@@ -15,6 +15,20 @@ namespace fyodor {
   class basic_shader : public shader_program {
     public:
       basic_shader();
+
+      /*
+        Preconditions:
+          - Program compiled successfully (done on construction of object)
+        Postconditions:
+          - Sets the modelview matrix in the vert.glvs shader
+        Side-effects:
+          - Does effect internal OpenGL state machine by chaging value!
+        Arguments:
+          - model_matrix: the matrix itself
+        Notes:
+          - If operation somehow fails, the matrix is not set
+      */
+      void set_model_matrix(const glm::mat4& model_matrix);
   };
 }
 

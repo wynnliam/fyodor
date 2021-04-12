@@ -178,15 +178,6 @@ void shader_program::bind() {
 	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
 	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 
-	// The matrix that transforms the plane from local space to world space.
-	glm::mat4 model_matrix = glm::mat4(1.0f);
-	//model_matrix = glm::rotate(model_matrix, glm::radians(0.5f), glm::vec3(1.0f, 0.0f, 0.0f));
-	model_matrix = glm::translate(model_matrix, glm::vec3(200.0f, 200.0f, 0.0f));
-	// Why do we need this? In local space, the width and height of the object are both 1.
-	// When we apply our projection matrix, the object will have a size of 1 pixel by 1 pixel.
-	// So we need to scale it according to the size of the texture.
-	model_matrix = glm::scale(model_matrix, glm::vec3(16, 16, 1));
-
 	// Now transform the scene to account for the camera. TO do this, we move the
 	// scene in the reverse direction of the camera. If the camera is moving to the left,
 	// the whole scene moves to the right.
@@ -202,8 +193,8 @@ void shader_program::bind() {
 	projection_matrix = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f, -1.0f, 1.0f);
 
 	// Now we bind these matricies to the program
-	unsigned int model_loc = glGetUniformLocation(id, "model_matrix");
-	glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
+	// unsigned int model_loc = glGetUniformLocation(id, "model_matrix");
+	// glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
 
 	unsigned int view_loc = glGetUniformLocation(id, "view_matrix");
 	glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view_matrix));
