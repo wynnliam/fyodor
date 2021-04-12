@@ -11,7 +11,6 @@
 
 #include <memory>
 #include "./state.h"
-//#include "./shader_program.h"
 #include "./shdr_basic.h"
 #include "./tilemap.h"
 #include "./tile_atlas.h"
