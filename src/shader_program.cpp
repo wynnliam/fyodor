@@ -165,24 +165,6 @@ void shader_program::shader_program_link_log() {
 
 void shader_program::bind() {
 	glUseProgram(id);
-
-	// TODO: Method for setting program uniforms
-	//int our_color_location = glGetUniformLocation(id, "our_color");
-	//glUniform4f(our_color_location, 0.4f, 1.0f, 0.2f, 1.0f);
-
-	//glm::mat4 trans = glm::mat4(1.0f);
-	//trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-	//trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 1.0f));
-
-	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
-	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
-
-	// Now we bind these matricies to the program
-	// unsigned int model_loc = glGetUniformLocation(id, "model_matrix");
-	// glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
-
-	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
-	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 }
 
 void shader_program::unbind() {
