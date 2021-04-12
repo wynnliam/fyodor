@@ -170,7 +170,6 @@ void shader_program::bind() {
 	//int our_color_location = glGetUniformLocation(id, "our_color");
 	//glUniform4f(our_color_location, 0.4f, 1.0f, 0.2f, 1.0f);
 
-	// Matrix that will scale and rotate objects
 	//glm::mat4 trans = glm::mat4(1.0f);
 	//trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 	//trans = glm::scale(trans, glm::vec3(0.5f, 0.5f, 1.0f));
@@ -178,29 +177,10 @@ void shader_program::bind() {
 	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
 	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 
-	// Now transform the scene to account for the camera. TO do this, we move the
-	// scene in the reverse direction of the camera. If the camera is moving to the left,
-	// the whole scene moves to the right.
-
-    // In this case, we needn't do anything.
-	glm::mat4 view_matrix = glm::mat4(1.0f);
-	//view_matrix = glm::translate(view_matrix, glm::vec3(0.0f, 0.0f, -3.0f));
-
-	// Finally, we want to put the scene into clip space. We define a projection
-	// matrix that uses a orthogonal projection.
-	glm::mat4 projection_matrix;
-	//projection_matrix = glm::perspective(glm::radians(45.0f), 640.0f / 480.0f, 0.1f, 100.0f);
-	projection_matrix = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f, -1.0f, 1.0f);
-
 	// Now we bind these matricies to the program
 	// unsigned int model_loc = glGetUniformLocation(id, "model_matrix");
 	// glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(model_matrix));
 
-	unsigned int view_loc = glGetUniformLocation(id, "view_matrix");
-	glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view_matrix));
-
-	unsigned int proj_loc = glGetUniformLocation(id, "proj_matrix");
-	glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 	//unsigned int transform_loc = glGetUniformLocation(id, "transform");
 	//glUniformMatrix4fv(transform_loc, 1, GL_FALSE, glm::value_ptr(trans));
 }
