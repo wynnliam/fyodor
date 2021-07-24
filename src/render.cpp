@@ -15,8 +15,6 @@ void fyodor::start_opengl(int argc, char** argv) {
     exit(-1);
   }
 
-  // TODO: Terminate with glfwTerminate
-
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
   glfwWindowHint(GLFW_DOUBLEBUFFER, 1);

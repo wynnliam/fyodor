@@ -35,6 +35,7 @@ namespace fyodor {
 					compiling, or linking steps.
 			*/
 			void bind();
+
       /*
         Preconditions:
           - Program properly loaded, compiled, and linked. This is

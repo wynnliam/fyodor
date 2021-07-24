@@ -59,9 +59,9 @@ namespace fyodor {
 	*/
 	bool initialize_opengl();
 
-    void swap_buffers();
+  void swap_buffers();
 
-    void clean_up_opengl();
+  void clean_up_opengl();
 }
 
 #endif

@@ -49,32 +49,32 @@ namespace fyodor {
 			*/
 			std::vector<glm::vec2> uv_coords(const unsigned int texture_index);
 
-            /*
-              Preconditions:
-                - map_tex loaded properly
-              Postconditions:
-                - Binds map_tex for rendering
-              Side-effects:
-                - Modifies OpenGL state machine.
-              Returns:
-                - None
-              Notes:
-                - When done, call unbind_tex.
-            */
-            void bind_tex();
+      /*
+        Preconditions:
+          - map_tex loaded properly
+        Postconditions:
+          - Binds map_tex for rendering
+        Side-effects:
+          - Modifies OpenGL state machine.
+        Returns:
+          - None
+        Notes:
+          - When done, call unbind_tex.
+      */
+      void bind_tex();
 
-            /*
-              Preconditions:
-                - map_tex binded
-              Postconditions:
-                - Unbinds map_tex for rendering
-              Side-effects:
-                - Modifies OpenGL state machine.
-              Returns:
-                - None
-              Notes:
-            */
-            void unbind_tex();
+      /*
+        Preconditions:
+          - map_tex binded
+        Postconditions:
+          - Unbinds map_tex for rendering
+        Side-effects:
+          - Modifies OpenGL state machine.
+        Returns:
+          - None
+        Notes:
+      */
+      void unbind_tex();
 
 		private:
 			std::shared_ptr<texture> map_tex;

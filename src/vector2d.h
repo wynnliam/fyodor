@@ -22,7 +22,6 @@ namespace fyodor {
 }
 
 fyodor::vector2d operator+ (const fyodor::vector2d& a, const fyodor::vector2d& b);
-
 fyodor::vector2d operator* (const float& scalar, const fyodor::vector2d& vect);
 fyodor::vector2d operator* (const fyodor::vector2d& vect, const float& scalar);
 #endif
