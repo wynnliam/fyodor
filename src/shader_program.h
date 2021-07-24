@@ -35,6 +35,19 @@ namespace fyodor {
 					compiling, or linking steps.
 			*/
 			void bind();
+      /*
+        Preconditions:
+          - Program properly loaded, compiled, and linked. This is
+            done on construction of the shader program
+        Postcondition:
+          - OpenGL no longer uses this program for rendering
+        Side-effects:
+          - Sets the OpenGL program to 0, so before rendering you'd
+            better bind another program!
+        Notes:
+          - I'm not sure what happens if the program fails in loading,
+            compiling, or linking and you try to unbind.
+      */
       void unbind();
 
 		private:

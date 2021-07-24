@@ -26,7 +26,6 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<tile_atlas> a) : wid
 			map_vao_data[vao_index + 1] = y + 0.5f;
 
 			// First triangle top left vert uv
-			// TODO: Tile atlas!
 			map_vao_data[vao_index + 2] = 0.0f;
 			map_vao_data[vao_index + 3] = 0.0f;
 
@@ -144,9 +143,9 @@ void tilemap::unbind() {
 }
 
 void tilemap::render() {
-    atlas->bind_tex();
+  atlas->bind_tex();
 	glBindVertexArray(vao_id);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * width * height);
 	glBindVertexArray(0);
-    atlas->unbind_tex();
+  atlas->unbind_tex();
 }
