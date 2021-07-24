@@ -24,6 +24,7 @@ namespace fyodor {
 			aabb() { }
 			aabb(const vector2d& tl, const vector2d& br) : top_left(tl), bottom_right(br) { }
 
+      // Simple collision test without branching
 			bool collides_with(const aabb& other) const;
 	};
 }

@@ -48,7 +48,28 @@ namespace fyodor {
 			*/
 			void set_tile(const unsigned int row, const unsigned int col, const unsigned int type);
 
+      /*
+        Binds the atlas texture in OpenGL.
+        Preconditions:
+          - Tile atlas properly initialized
+        Postconditions:
+          - Tile atlas texture now bound in OpenGL. Subsequent
+            draw calls will use it.
+      */
       void bind();
+
+      /*
+        Unbinds the atlas texture in OpenGL.
+        Preconditions:
+          - bind was previously called
+        Postconditions:
+          - No texture will be bound in OpenGL. You should
+            bind another texture before a draw call!
+        Notes:
+          - I don't know what will happen when you try to call
+            unbind without having called bind first. I suspect it
+            will deactivate whatever texture is already bound.
+      */
       void unbind();
 
 			void render();

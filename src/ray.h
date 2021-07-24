@@ -13,6 +13,7 @@ namespace fyodor {
 
 			vector2d at(const float t) const;
 
+      // Performs simple ray-box intersection without branching.
 			bool collides_with(const aabb& box) const;
 
 			vector2d origin;

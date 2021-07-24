@@ -59,8 +59,21 @@ namespace fyodor {
 	*/
 	bool initialize_opengl();
 
+  /*
+    A simple wrapper to invoke OpenGL glSwapBuffers.
+
+    Preconditions:
+      - OpenGL initialized with a valid Context.
+  */
   void swap_buffers();
 
+  /*
+    Preconditions:
+      - Valid OpenGL context and window created.
+    Postconditions:
+      - Destorys the OpenGL context and window
+      - Terminates glfw
+  */
   void clean_up_opengl();
 }
 
