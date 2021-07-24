@@ -15,6 +15,10 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<tile_atlas> a) : wid
 	unsigned int num_floats = 24 * tile_count;
 	map_vao_data = new float[num_floats];
 
+  //vector<glm::vec2> tile_atlas::uv_coords(const unsigned int texture_index) {
+  // By default we use the uv coordinates of the 0 (top-left) texture of the atlas.
+  vector<glm::vec2> uv_coords_0_tex = a->uv_coords(0);
+
 	unsigned int index, vao_index;
 	for(unsigned int x = 0; x < width; x++) {
 		for(unsigned int y = 0; y < height; y++) {
@@ -26,48 +30,60 @@ tilemap::tilemap(unsigned int w, unsigned int h, shared_ptr<tile_atlas> a) : wid
 			map_vao_data[vao_index + 1] = y + 0.5f;
 
 			// First triangle top left vert uv
-			map_vao_data[vao_index + 2] = 0.0f;
-			map_vao_data[vao_index + 3] = 0.0f;
+			/*map_vao_data[vao_index + 2] = 0.0f;
+			map_vao_data[vao_index + 3] = 0.0f;*/
+			map_vao_data[vao_index + 2] = uv_coords_0_tex[0].x;
+			map_vao_data[vao_index + 3] = uv_coords_0_tex[0].y;
 
 			// First triangle top right vert
 			map_vao_data[vao_index + 4] = x + 0.5f;
 			map_vao_data[vao_index + 5] = y + 0.5f;
 
 			// First triangle top right vert uv
-			map_vao_data[vao_index + 6] = 1.0f / 3.0f;
-			map_vao_data[vao_index + 7] = 0.0f;
+			/*map_vao_data[vao_index + 6] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 7] = 0.0f;*/
+			map_vao_data[vao_index + 6] = uv_coords_0_tex[1].x;
+			map_vao_data[vao_index + 7] = uv_coords_0_tex[1].y;
 
 			// First triangle bottom left vert
 			map_vao_data[vao_index + 8] = x - 0.5f;
 			map_vao_data[vao_index + 9] = y - 0.5f;
 
 			// First triangle bottom left vert uv
-			map_vao_data[vao_index + 10] = 0.0f;
-			map_vao_data[vao_index + 11] = 0.5f;
+			/*map_vao_data[vao_index + 10] = 0.0f;
+			map_vao_data[vao_index + 11] = 0.5f;*/
+			map_vao_data[vao_index + 10] = uv_coords_0_tex[2].x;
+			map_vao_data[vao_index + 11] = uv_coords_0_tex[2].y;
 
 			// Second triangle  bottom left vert
 			map_vao_data[vao_index + 12] = x - 0.5f;
 			map_vao_data[vao_index + 13] = y - 0.5f;
 
 			// Second triangle bottom left vert uv
-			map_vao_data[vao_index + 14] = 0.0f;
-			map_vao_data[vao_index + 15] = 0.5f;
+			/*map_vao_data[vao_index + 14] = 0.0f;
+			map_vao_data[vao_index + 15] = 0.5f;*/
+			map_vao_data[vao_index + 14] = uv_coords_0_tex[2].x;
+			map_vao_data[vao_index + 15] = uv_coords_0_tex[2].y;
 
 			// Second triangle bottom right
 			map_vao_data[vao_index + 16] = x + 0.5f;
 			map_vao_data[vao_index + 17] = y - 0.5f;
 
 			// Second triangle bottom right uv
-			map_vao_data[vao_index + 18] = 1.0f / 3.0f;
-			map_vao_data[vao_index + 19] = 0.5f;
+			/*map_vao_data[vao_index + 18] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 19] = 0.5f;*/
+			map_vao_data[vao_index + 18] = uv_coords_0_tex[3].x;
+			map_vao_data[vao_index + 19] = uv_coords_0_tex[3].y;
 
 			// Second triangle top right vert
 			map_vao_data[vao_index + 20] = x + 0.5f;
 			map_vao_data[vao_index + 21] = y + 0.5f;
 
 			// First triangle top right vert uv
-			map_vao_data[vao_index + 22] = 1.0f / 3.0f;
-			map_vao_data[vao_index + 23] = 0.0f;
+			/*map_vao_data[vao_index + 22] = 1.0f / 3.0f;
+			map_vao_data[vao_index + 23] = 0.0f;*/
+			map_vao_data[vao_index + 22] = uv_coords_0_tex[1].x;
+			map_vao_data[vao_index + 23] = uv_coords_0_tex[1].y;
 		}
 	}
 
